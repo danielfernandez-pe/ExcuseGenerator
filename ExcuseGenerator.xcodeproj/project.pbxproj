@@ -75,7 +75,7 @@
 		4F91029A27345C2400B02C03 /* ExcuseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91025527345C2400B02C03 /* ExcuseService.swift */; };
 		4FFC221427346165006B10CF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC221327346165006B10CF /* R.generated.swift */; };
 		4FFC2217273461C7006B10CF /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FFC2216273461C7006B10CF /* Rswift */; };
-		4FFC221B27347570006B10CF /* CoordinatorRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 4FFC221A27347570006B10CF /* CoordinatorRouter */; };
+		4FFC2221273477BB006B10CF /* CoordinatorRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 4FFC2220273477BB006B10CF /* CoordinatorRouter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FFC221B27347570006B10CF /* CoordinatorRouter in Frameworks */,
+				4FFC2221273477BB006B10CF /* CoordinatorRouter in Frameworks */,
 				4FFC2217273461C7006B10CF /* Rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,7 +475,7 @@
 			name = ExcuseGenerator;
 			packageProductDependencies = (
 				4FFC2216273461C7006B10CF /* Rswift */,
-				4FFC221A27347570006B10CF /* CoordinatorRouter */,
+				4FFC2220273477BB006B10CF /* CoordinatorRouter */,
 			);
 			productName = ExcuseGenerator;
 			productReference = 4F9101E427345BC700B02C03 /* ExcuseGenerator.app */;
@@ -508,7 +508,7 @@
 			mainGroup = 4F9101DB27345BC700B02C03;
 			packageReferences = (
 				4FFC2215273461C7006B10CF /* XCRemoteSwiftPackageReference "R.swift" */,
-				4FFC221927347570006B10CF /* XCRemoteSwiftPackageReference "CoordinatorRouterPackage" */,
+				4FFC221F273477BB006B10CF /* XCRemoteSwiftPackageReference "CoordinatorRouterPackage" */,
 			);
 			productRefGroup = 4F9101E527345BC700B02C03 /* Products */;
 			projectDirPath = "";
@@ -799,7 +799,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4RGG6YXDS6;
 				ENABLE_PREVIEWS = YES;
@@ -833,7 +833,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4RGG6YXDS6;
 				ENABLE_PREVIEWS = YES;
@@ -892,7 +892,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		4FFC221927347570006B10CF /* XCRemoteSwiftPackageReference "CoordinatorRouterPackage" */ = {
+		4FFC221F273477BB006B10CF /* XCRemoteSwiftPackageReference "CoordinatorRouterPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielfcodes/CoordinatorRouterPackage";
 			requirement = {
@@ -908,9 +908,9 @@
 			package = 4FFC2215273461C7006B10CF /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = Rswift;
 		};
-		4FFC221A27347570006B10CF /* CoordinatorRouter */ = {
+		4FFC2220273477BB006B10CF /* CoordinatorRouter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4FFC221927347570006B10CF /* XCRemoteSwiftPackageReference "CoordinatorRouterPackage" */;
+			package = 4FFC221F273477BB006B10CF /* XCRemoteSwiftPackageReference "CoordinatorRouterPackage" */;
 			productName = CoordinatorRouter;
 		};
 /* End XCSwiftPackageProductDependency section */
