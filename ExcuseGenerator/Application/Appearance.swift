@@ -32,7 +32,7 @@ struct Appearance {
         appearance.doneButtonAppearance.normal.titleTextAttributes = barButtonAttributes
         appearance.setBackIndicatorImage(R.image.icBack(), transitionMaskImage: R.image.icBack())
         appearance.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.black
+            NSAttributedString.Key.foregroundColor: R.color.black() ?? .black
         ]
 
         appearance.largeTitleTextAttributes = [

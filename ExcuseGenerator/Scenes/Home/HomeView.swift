@@ -27,7 +27,10 @@ struct HomeView: View {
                     color: Color(R.color.homeTitle.name)
                 )
                 .textStyle(.title1)
+                .lineLimit(3)
+                .minimumScaleFactor(0.5)
                 .padding(.top, 100)
+                .padding(.trailing, 100)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
                 Spacer()
@@ -69,6 +72,7 @@ struct HomeView: View {
                     .frame(size: boxSize)
                 })
                 .buttonStyle(ScaleButtonStyle())
+                .padding(.bottom, 50)
             }
             .padding(Appearance.Padding.medium)
         }

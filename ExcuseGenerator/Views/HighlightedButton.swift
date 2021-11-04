@@ -36,7 +36,6 @@ struct HighlightedButton: View {
         })
         .frame(height: 56)
         .scaleEffect(isPressed ? scale : 1)
-        .animation(.easeInOut(duration: 0.3))
         .buttonStyle(NoneButtonStyle())
         .onLongPressGesture(
             minimumDuration: 0,

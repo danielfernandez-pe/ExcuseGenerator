@@ -18,30 +18,41 @@ protocol ExcuseServiceType {
 }
 
 final class ExcuseService: ExcuseServiceType {
-    enum ExcuseRange {
-        static let intro: ClosedRange = 1...9
-        static let scapegoat: ClosedRange = 1...25
-        static let ending: ClosedRange = 1...13
-    }
+    let excuseRange = 0...24
+    lazy var introExcuses = excuseRange.map { NSLocalizedString("intro.excuse\($0)", comment: "") }
+    lazy var scapegoatExcuses = excuseRange.map { NSLocalizedString("scapegoat.excuse\($0)", comment: "") }
+    lazy var endingExcuses = excuseRange.map { NSLocalizedString("ending.excuse\($0)", comment: "") }
 
     func getRandomExcuse() -> String {
-        let introIndex = Int.random(in: ExcuseRange.intro)
-        let scapegoatIndex = Int.random(in: ExcuseRange.scapegoat)
-        let endingIndex = Int.random(in: ExcuseRange.ending)
-        let intro = NSLocalizedString("intro.excuse\(introIndex)", comment: "")
-        let scapegoat = NSLocalizedString("scapegoat.excuse\(scapegoatIndex)", comment: "")
-        let ending = NSLocalizedString("ending.excuse\(endingIndex)", comment: "")
-        return "\(intro) \(scapegoat) \(ending)"
+        let range = 0..<introExcuses.count
+        let introIndex = Int.random(in: range)
+        let scapegoatIndex = Int.random(in: range)
+        let endingIndex = Int.random(in: range)
+
+        let excuse = "\(introExcuses[introIndex]) \(scapegoatExcuses[scapegoatIndex]) \(endingExcuses[endingIndex])"
+        introExcuses.remove(at: introIndex)
+        scapegoatExcuses.remove(at: scapegoatIndex)
+        endingExcuses.remove(at: endingIndex)
+
+        resetExcusesIfNeeded()
+        return excuse
     }
 
     func excuses(for type: ExcuseType) -> [String] {
         switch type {
         case .intro:
-            return ExcuseRange.intro.map { NSLocalizedString("intro.excuse\($0)", comment: "") }
+            return excuseRange.map { NSLocalizedString("intro.excuse\($0)", comment: "") }
         case .scapegoat:
-            return ExcuseRange.scapegoat.map { NSLocalizedString("scapegoat.excuse\($0)", comment: "") }
+            return excuseRange.map { NSLocalizedString("scapegoat.excuse\($0)", comment: "") }
         case .ending:
-            return ExcuseRange.ending.map { NSLocalizedString("ending.excuse\($0)", comment: "") }
+            return excuseRange.map { NSLocalizedString("ending.excuse\($0)", comment: "") }
         }
+    }
+
+    private func resetExcusesIfNeeded() {
+        guard introExcuses.isEmpty else { return }
+        introExcuses = excuseRange.map { NSLocalizedString("intro.excuse\($0)", comment: "") }
+        scapegoatExcuses = excuseRange.map { NSLocalizedString("scapegoat.excuse\($0)", comment: "") }
+        endingExcuses = excuseRange.map { NSLocalizedString("ending.excuse\($0)", comment: "") }
     }
 }
