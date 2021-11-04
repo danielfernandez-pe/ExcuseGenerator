@@ -24,7 +24,7 @@ struct HomeView: View {
                 ColoredText(
                     L.title(),
                     matching: L.titleColored(),
-                    color: Color(R.color.purple.name)
+                    color: Color(R.color.homeTitle.name)
                 )
                 .textStyle(.title1)
                 .padding(.top, 100)

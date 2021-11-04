@@ -250,10 +250,10 @@
 		4F91020027345C2400B02C03 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4F91020427345C2400B02C03 /* HomeCoordinator.swift */,
+				4F91020327345C2400B02C03 /* HomeViewController.swift */,
 				4F91020127345C2400B02C03 /* HomeViewModel.swift */,
 				4F91020227345C2400B02C03 /* HomeView.swift */,
-				4F91020327345C2400B02C03 /* HomeViewController.swift */,
-				4F91020427345C2400B02C03 /* HomeCoordinator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -262,9 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				4F91020627345C2400B02C03 /* LoadingCoordinator.swift */,
+				4F91020927345C2400B02C03 /* LoadingViewController.swift */,
 				4F91020727345C2400B02C03 /* LoadingViewModel.swift */,
 				4F91020827345C2400B02C03 /* LoadingView.swift */,
-				4F91020927345C2400B02C03 /* LoadingViewController.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -327,10 +327,10 @@
 		4F91022127345C2400B02C03 /* ExcuseResult */ = {
 			isa = PBXGroup;
 			children = (
-				4F91022227345C2400B02C03 /* ExcuseResultViewModel.swift */,
-				4F91022327345C2400B02C03 /* ExcuseResultViewController.swift */,
-				4F91022427345C2400B02C03 /* ExcuseResultView.swift */,
 				4F91022527345C2400B02C03 /* ExcuseResultCoordinator.swift */,
+				4F91022327345C2400B02C03 /* ExcuseResultViewController.swift */,
+				4F91022227345C2400B02C03 /* ExcuseResultViewModel.swift */,
+				4F91022427345C2400B02C03 /* ExcuseResultView.swift */,
 			);
 			path = ExcuseResult;
 			sourceTree = "<group>";
@@ -338,10 +338,10 @@
 		4F91022627345C2400B02C03 /* OwnExcuse */ = {
 			isa = PBXGroup;
 			children = (
-				4F91022727345C2400B02C03 /* ChooseMedium */,
-				4F91022C27345C2400B02C03 /* ChooseState.swift */,
 				4F91022D27345C2400B02C03 /* ChooseIntro */,
+				4F91022727345C2400B02C03 /* ChooseMedium */,
 				4F91023227345C2400B02C03 /* ChooseEnding */,
+				4F91022C27345C2400B02C03 /* ChooseState.swift */,
 			);
 			path = OwnExcuse;
 			sourceTree = "<group>";
@@ -350,8 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				4F91022827345C2400B02C03 /* ChooseMediumViewModel.swift */,
-				4F91022927345C2400B02C03 /* ChooseMediumCoordinator.swift */,
 				4F91022A27345C2400B02C03 /* ChooseMediumViewController.swift */,
+				4F91022927345C2400B02C03 /* ChooseMediumCoordinator.swift */,
 				4F91022B27345C2400B02C03 /* ChooseMediumView.swift */,
 			);
 			path = ChooseMedium;
@@ -361,9 +361,9 @@
 			isa = PBXGroup;
 			children = (
 				4F91022E27345C2400B02C03 /* ChooseIntroCoordinator.swift */,
+				4F91023127345C2400B02C03 /* ChooseIntroViewController.swift */,
 				4F91022F27345C2400B02C03 /* ChooseIntroViewModel.swift */,
 				4F91023027345C2400B02C03 /* ChooseIntroView.swift */,
-				4F91023127345C2400B02C03 /* ChooseIntroViewController.swift */,
 			);
 			path = ChooseIntro;
 			sourceTree = "<group>";
@@ -371,10 +371,10 @@
 		4F91023227345C2400B02C03 /* ChooseEnding */ = {
 			isa = PBXGroup;
 			children = (
-				4F91023327345C2400B02C03 /* ChooseEndingViewModel.swift */,
-				4F91023427345C2400B02C03 /* ChooseEndingView.swift */,
 				4F91023527345C2400B02C03 /* ChooseEndingCoordinator.swift */,
 				4F91023627345C2400B02C03 /* ChooseEndingViewController.swift */,
+				4F91023327345C2400B02C03 /* ChooseEndingViewModel.swift */,
+				4F91023427345C2400B02C03 /* ChooseEndingView.swift */,
 			);
 			path = ChooseEnding;
 			sourceTree = "<group>";
