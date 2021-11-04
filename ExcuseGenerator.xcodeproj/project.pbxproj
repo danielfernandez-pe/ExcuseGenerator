@@ -148,8 +148,8 @@
 		4F91025227345C2400B02C03 /* ViewDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDataType.swift; sourceTree = "<group>"; };
 		4F91025327345C2400B02C03 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		4F91025527345C2400B02C03 /* ExcuseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuseService.swift; sourceTree = "<group>"; };
-		4FFC220F2734607D006B10CF /* CoordinatorRouter */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CoordinatorRouter; path = ../../Documents/iOS/projects/CoordinatorRouter; sourceTree = "<group>"; };
 		4FFC221327346165006B10CF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		4FFC22182734642B006B10CF /* CoordinatorRouter */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CoordinatorRouter; path = ../CoordinatorRouter; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 		4F9101DB27345BC700B02C03 = {
 			isa = PBXGroup;
 			children = (
-				4FFC220F2734607D006B10CF /* CoordinatorRouter */,
+				4FFC22182734642B006B10CF /* CoordinatorRouter */,
 				4F9101E627345BC700B02C03 /* ExcuseGenerator */,
 				4F9101E527345BC700B02C03 /* Products */,
 				4FFC22102734608A006B10CF /* Frameworks */,
