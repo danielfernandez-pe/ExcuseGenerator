@@ -1,0 +1,10 @@
+# Email address for an Apple ID account.
+apple_id "dfernandezsw@gmail.com"
+
+# Apple Developer portal team name and ID. Be sure to specify the client's team here.
+team_name "Daniel Fernandez"
+team_id "4RGG6YXDS6"
+
+# iTunesConnect team name and ID. ID can be found with Spaceship.
+itc_team_name "Daniel Fernandez"
+itc_team_id "122991158"
