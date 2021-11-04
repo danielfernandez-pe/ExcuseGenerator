@@ -73,9 +73,9 @@
 		4F91029827345C2400B02C03 /* ViewDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91025227345C2400B02C03 /* ViewDataType.swift */; };
 		4F91029927345C2400B02C03 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91025327345C2400B02C03 /* ViewModelType.swift */; };
 		4F91029A27345C2400B02C03 /* ExcuseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91025527345C2400B02C03 /* ExcuseService.swift */; };
-		4FFC22122734608A006B10CF /* CoordinatorRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 4FFC22112734608A006B10CF /* CoordinatorRouter */; };
 		4FFC221427346165006B10CF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC221327346165006B10CF /* R.generated.swift */; };
 		4FFC2217273461C7006B10CF /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FFC2216273461C7006B10CF /* Rswift */; };
+		4FFC221B27347570006B10CF /* CoordinatorRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 4FFC221A27347570006B10CF /* CoordinatorRouter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,7 +149,6 @@
 		4F91025327345C2400B02C03 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		4F91025527345C2400B02C03 /* ExcuseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuseService.swift; sourceTree = "<group>"; };
 		4FFC221327346165006B10CF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		4FFC22182734642B006B10CF /* CoordinatorRouter */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CoordinatorRouter; path = ../CoordinatorRouter; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FFC22122734608A006B10CF /* CoordinatorRouter in Frameworks */,
+				4FFC221B27347570006B10CF /* CoordinatorRouter in Frameworks */,
 				4FFC2217273461C7006B10CF /* Rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,7 +167,6 @@
 		4F9101DB27345BC700B02C03 = {
 			isa = PBXGroup;
 			children = (
-				4FFC22182734642B006B10CF /* CoordinatorRouter */,
 				4F9101E627345BC700B02C03 /* ExcuseGenerator */,
 				4F9101E527345BC700B02C03 /* Products */,
 				4FFC22102734608A006B10CF /* Frameworks */,
@@ -476,8 +474,8 @@
 			);
 			name = ExcuseGenerator;
 			packageProductDependencies = (
-				4FFC22112734608A006B10CF /* CoordinatorRouter */,
 				4FFC2216273461C7006B10CF /* Rswift */,
+				4FFC221A27347570006B10CF /* CoordinatorRouter */,
 			);
 			productName = ExcuseGenerator;
 			productReference = 4F9101E427345BC700B02C03 /* ExcuseGenerator.app */;
@@ -510,6 +508,7 @@
 			mainGroup = 4F9101DB27345BC700B02C03;
 			packageReferences = (
 				4FFC2215273461C7006B10CF /* XCRemoteSwiftPackageReference "R.swift" */,
+				4FFC221927347570006B10CF /* XCRemoteSwiftPackageReference "CoordinatorRouterPackage" */,
 			);
 			productRefGroup = 4F9101E527345BC700B02C03 /* Products */;
 			projectDirPath = "";
@@ -893,17 +892,26 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		4FFC221927347570006B10CF /* XCRemoteSwiftPackageReference "CoordinatorRouterPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielfcodes/CoordinatorRouterPackage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4FFC22112734608A006B10CF /* CoordinatorRouter */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CoordinatorRouter;
-		};
 		4FFC2216273461C7006B10CF /* Rswift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4FFC2215273461C7006B10CF /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = Rswift;
+		};
+		4FFC221A27347570006B10CF /* CoordinatorRouter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FFC221927347570006B10CF /* XCRemoteSwiftPackageReference "CoordinatorRouterPackage" */;
+			productName = CoordinatorRouter;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

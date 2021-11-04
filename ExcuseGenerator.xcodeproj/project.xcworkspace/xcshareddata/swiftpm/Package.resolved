@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "CoordinatorRouter",
+        "repositoryURL": "https://github.com/danielfcodes/CoordinatorRouterPackage",
+        "state": {
+          "branch": null,
+          "revision": "96efb54d0edb617ba79057459cd48c4ff2f2a9d3",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "R.swift.Library",
         "repositoryURL": "https://github.com/mac-cain13/R.swift.Library",
         "state": {
