@@ -33,7 +33,7 @@ final class LoadingViewModel: ViewModelType {
 
     func setupDataUpdates(dependency: Dependency, bindings: Bindings) {
         animationFinished = Just(())
-            .delay(for: .seconds(3), scheduler: RunLoop.main, options: .none)
+            .delay(for: .seconds(2), scheduler: RunLoop.main, options: .none)
             .eraseToAnyPublisher()
     }
 }
