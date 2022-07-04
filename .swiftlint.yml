@@ -1,8 +1,7 @@
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - .bundle/
   - bundle/
-  - Pods/
-  - R.generated.swift
+  - ExcuseGenerator/Resources/R.generated.swift
   - ExcuseGenerator/Helpers/
   - ExcuseGenerator/Extensions/
 
