@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F4DA8132872F1430046785B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DA8122872F1430046785B /* R.generated.swift */; };
 		4F91025627345C2400B02C03 /* ControllerWithViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101F627345C2400B02C03 /* ControllerWithViewData.swift */; };
 		4F91025727345C2400B02C03 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101F727345C2400B02C03 /* NavigationController.swift */; };
 		4F91025827345C2400B02C03 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101FA27345C2400B02C03 /* UIBarButtonItem+.swift */; };
@@ -73,12 +74,12 @@
 		4F91029827345C2400B02C03 /* ViewDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91025227345C2400B02C03 /* ViewDataType.swift */; };
 		4F91029927345C2400B02C03 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91025327345C2400B02C03 /* ViewModelType.swift */; };
 		4F91029A27345C2400B02C03 /* ExcuseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91025527345C2400B02C03 /* ExcuseService.swift */; };
-		4FFC221427346165006B10CF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC221327346165006B10CF /* R.generated.swift */; };
 		4FFC2217273461C7006B10CF /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FFC2216273461C7006B10CF /* Rswift */; };
 		4FFC2221273477BB006B10CF /* CoordinatorRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 4FFC2220273477BB006B10CF /* CoordinatorRouter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F4DA8122872F1430046785B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		4F9101E427345BC700B02C03 /* ExcuseGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcuseGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9101F627345C2400B02C03 /* ControllerWithViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerWithViewData.swift; sourceTree = "<group>"; };
 		4F9101F727345C2400B02C03 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -148,7 +149,6 @@
 		4F91025227345C2400B02C03 /* ViewDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDataType.swift; sourceTree = "<group>"; };
 		4F91025327345C2400B02C03 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		4F91025527345C2400B02C03 /* ExcuseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuseService.swift; sourceTree = "<group>"; };
-		4FFC221327346165006B10CF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,7 +409,7 @@
 		4F91024127345C2400B02C03 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4FFC221327346165006B10CF /* R.generated.swift */,
+				4F4DA8122872F1430046785B /* R.generated.swift */,
 				4F91024227345C2400B02C03 /* Localizable.strings */,
 				4F91024527345C2400B02C03 /* Assets.xcassets */,
 			);
@@ -550,27 +550,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "## begin\nif [ `uname -m` == 'arm64' ] && [ -d /opt/homebrew/bin/ ]; then\n  export PATH=/opt/homebrew/bin:$PATH\nfi\n## end\n\nmint run swiftlint\n";
+			shellScript = "\"$SRCROOT\"/BuildPhases/Swiftlint.sh\n";
 		};
 		4F91029C27345DAB00B02C03 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
+				"",
 			);
 			name = R.swift;
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				$PROJECT_DIR/$PROJECT_NAME/Resources/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "## begin\nif [ `uname -m` == 'arm64' ] && [ -d /opt/homebrew/bin/ ]; then\n  export PATH=/opt/homebrew/bin:$PATH\nfi\n## end\n\nif [ $ACTION != \"indexbuild\" ]; then\n  if mint list | grep -q 'R.swift'; then\n    mint run R.swift rswift generate \"$SRCROOT/R.generated.swift\"\n  else\n    echo \"error: R.swift not installed; run 'mint bootstrap' to install\"\n    return -1\n  fi\nfi\n";
+			shellScript = "\"$SRCROOT\"/BuildPhases/R.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -608,10 +609,10 @@
 				4F91026E27345C2400B02C03 /* Home2Coordinator.swift in Sources */,
 				4F91028327345C2400B02C03 /* ChooseEndingViewModel.swift in Sources */,
 				4F91028027345C2400B02C03 /* ChooseIntroViewModel.swift in Sources */,
+				4F4DA8132872F1430046785B /* R.generated.swift in Sources */,
 				4F91025D27345C2400B02C03 /* HomeView.swift in Sources */,
 				4F91026427345C2400B02C03 /* TestCoordinator.swift in Sources */,
 				4F91029727345C2400B02C03 /* ViewModelAttaching.swift in Sources */,
-				4FFC221427346165006B10CF /* R.generated.swift in Sources */,
 				4F91027C27345C2400B02C03 /* ChooseMediumViewController.swift in Sources */,
 				4F91026627345C2400B02C03 /* TestView.swift in Sources */,
 				4F91026327345C2400B02C03 /* LoadingViewController.swift in Sources */,
