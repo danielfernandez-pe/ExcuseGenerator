@@ -7,6 +7,7 @@ platform :ios do
 	# ***************************************************** #
 
 	debug_identifier = "danielfcodes.ExcuseGenerator.debug"
+	devel_identifier = "danielfcodes.ExcuseGenerator.devel"
 	appstore_identifier = "danielfcodes.ExcuseGenerator"
 	project_name = "ExcuseGenerator"
 
@@ -15,12 +16,21 @@ platform :ios do
 	# ***************************************************** #
 
 	before_all do
-		ENV["FASTLANE_PASSWORD"] = "Apple20090390"
-		ENV["FASTLANE_SESSION"] = '---\n- !ruby/object:HTTP::Cookie\n  name: myacinfo\n  value: DAWTKNV323952cf8084a204fb20ab2508441a07d02d327ff1ddf3e36e6b480de7b2406520f93f849a9f82c6c4060ee8586e25cbac8f7aa5e14a137bc27d2aac94eea17cac03fd63814ad61afa5c5f7c48d74b4d8b8742f6c1edb64bd8271305743dff7cff1ca1c4b92dfb1ddbcc7164906e615f1503325f518a7e5322287133c4e998ddb9b923642b92a20c86f7cac1ae9d429d38d6aa3005902688a5a3800a604f53ad6162ca7019fd144072fe86f7596777f9251dd08d46a8722e2a56dd38144eb6b10e9866a00a135404a978eba432fd2f8717f0c2a5d39e81c466004cecf3788d3961147a268e6635dadf49436a9f37a004b7f340dc51ce12d74225baad54a5ea2a4492621b54f69de9907b525fb7aabb06844ec2963819eedee4e6944013961cea22a43988cc72854d137b6a3ae02465cdbd7d05b4e8116d3a80f212323ea44896714d975729ea4f2899e43acd8717207728d3c267e2a0d5540cf3492d4956d61b5c94eb2e94a242f3ae7e5a9952158d6a438d1cc3a2ab083b2a2a3bb136f0ea168914ca9fc246a2e18ac182e70097f25d3b1558e0dd9e70149e187aeb4b8531a093e2776ef60f3b09af14c5bb1b7f38039c406162b224cee66eeb468b5889b6e43ae44dbbaf5b3ff77a71770d3f325efa5b8dd7b5b31729e8bfc65b02db51755df68a9e3f96f0ed86ae2cb40d0cc460d0ce1a69e242df24a387106fec28e33655422a705320cdfc0f4915482dd9b121a40711c83bac89c4ab0d314448be62a0f3018d745ecbf650e3a22256a88befc35c366c203fcf424f34d2393f9ac06ca780a3532047c958a2cb5ebb7f5284a34aa02a81ce2d65b834e136110aa40c8bd2e9974b7ff087ad4a4e7e5301349cc2068807f00585a47V3\n  domain: apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: \n  created_at: 2021-10-31 17:04:35.726027000 +01:00\n  accessed_at: 2021-10-31 17:04:35.734449000 +01:00\n- !ruby/object:HTTP::Cookie\n  name: DES5124b5d6749932f7247a5d461e8cf6ff7\n  value: HSARMTKNSRVXWFla4iDZrMZrA86UtkXnLdv7l0MZyQaZgROkf1xET+JDWInUAZhx+QjmYCzjKgdlGyLVyqc/nb3R+g1Xa8HqfOg+MpSGsXvFpdkTPj/1tCdw7Nq2fcFCQPZjPWSbc+oK7nNJukVpJdc1jBfMjX0O2Ow3QvRN9AU9mcM6/wN6JswznLdl/CIlDH0iQQ==SRVX\n  domain: idmsa.apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: 2592000\n  created_at: &1 2021-10-31 17:04:35.725754000 +01:00\n  accessed_at: *1\n- !ruby/object:HTTP::Cookie\n  name: dqsid\n  value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzU2OTYyNzYsImp0aSI6IjVvT3p3dEs2WkJoVDBBTGJXcU1tc1EifQ.Rb1k_7g310rLpdQEWOFtRR67KRZ0xolCHsvjxOpDq0w\n  domain: appstoreconnect.apple.com\n  for_domain: false\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: 1800\n  created_at: &2 2021-10-31 17:04:40.299539000 +01:00\n  accessed_at: *2\n'
-		ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "fnrs-hyse-ezke-rzda"
-		ENV["MATCH_PASSWORD"] = "Lima1234"
+		# ENV["FASTLANE_SESSION"] = '---\n- !ruby/object:HTTP::Cookie\n  name: myacinfo\n  value: DAWTKNV323952cf8084a204fb20ab2508441a07d02d327ff1ddf3e36e6b480de7b2406520f93f849a9f82c6c4060ee8586e25cbac8f7aa5e14a137bc27d2aac94eea17cac03fd63814ad61afa5c5f7c48d74b4d8b8742f6c1edb64bd8271305743dff7cff1ca1c4b92dfb1ddbcc7164906e615f1503325f518a7e5322287133c4e998ddb9b923642b92a20c86f7cac1ae9d429d38d6aa3005902688a5a3800a604f53ad6162ca7019fd144072fe86f7596777f9251dd08d46a8722e2a56dd38144eb6b10e9866a00a135404a978eba432fd2f8717f0c2a5d39e81c466004cecf3788d3961147a268e6635dadf49436a9f37a004b7f340dc51ce12d74225baad54a5ea2a4492621b54f69de9907b525fb7aabb06844ec2963819eedee4e6944013961cea22a43988cc72854d137b6a3ae02465cdbd7d05b4e8116d3a80f212323ea44896714d975729ea4f2899e43acd8717207728d3c267e2a0d5540cf3492d4956d61b5c94eb2e94a242f3ae7e5a9952158d6a438d1cc3a2ab083b2a2a3bb136f0ea168914ca9fc246a2e18ac182e70097f25d3b1558e0dd9e70149e187aeb4b8531a093e2776ef60f3b09af14c5bb1b7f38039c406162b224cee66eeb468b5889b6e43ae44dbbaf5b3ff77a71770d3f325efa5b8dd7b5b31729e8bfc65b02db51755df68a9e3f96f0ed86ae2cb40d0cc460d0ce1a69e242df24a387106fec28e33655422a705320cdfc0f4915482dd9b121a40711c83bac89c4ab0d314448be62a0f3018d745ecbf650e3a22256a88befc35c366c203fcf424f34d2393f9ac06ca780a3532047c958a2cb5ebb7f5284a34aa02a81ce2d65b834e136110aa40c8bd2e9974b7ff087ad4a4e7e5301349cc2068807f00585a47V3\n  domain: apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: \n  created_at: 2021-10-31 17:04:35.726027000 +01:00\n  accessed_at: 2021-10-31 17:04:35.734449000 +01:00\n- !ruby/object:HTTP::Cookie\n  name: DES5124b5d6749932f7247a5d461e8cf6ff7\n  value: HSARMTKNSRVXWFla4iDZrMZrA86UtkXnLdv7l0MZyQaZgROkf1xET+JDWInUAZhx+QjmYCzjKgdlGyLVyqc/nb3R+g1Xa8HqfOg+MpSGsXvFpdkTPj/1tCdw7Nq2fcFCQPZjPWSbc+oK7nNJukVpJdc1jBfMjX0O2Ow3QvRN9AU9mcM6/wN6JswznLdl/CIlDH0iQQ==SRVX\n  domain: idmsa.apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: 2592000\n  created_at: &1 2021-10-31 17:04:35.725754000 +01:00\n  accessed_at: *1\n- !ruby/object:HTTP::Cookie\n  name: dqsid\n  value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzU2OTYyNzYsImp0aSI6IjVvT3p3dEs2WkJoVDBBTGJXcU1tc1EifQ.Rb1k_7g310rLpdQEWOFtRR67KRZ0xolCHsvjxOpDq0w\n  domain: appstoreconnect.apple.com\n  for_domain: false\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: 1800\n  created_at: &2 2021-10-31 17:04:40.299539000 +01:00\n  accessed_at: *2\n'
 		ENV['XCODE_PROJECT'] = project_name + ".xcodeproj"
 		ENV['WORKSPACE_PROJECT'] = project_name + ".xcworkspace"
+		ENV['FASTLANE_USER'] = "dfernandezsw@gmail.com"
+		ENV['FASTLANE_PASSWORD'] = "r2AOSSTfh&NViC@t{1$P"
+		ENV['FASTLANE_PASSWORD'] = "r2AOSSTfh&NViC@t{1$P"
+		ENV['MATCH_KEYCHAIN_PASSWORD'] = "daniel20090390"
+
+		app_store_connect_api_key(
+			key_id: "V63QY3U9RH",
+			issuer_id: "1ccf48f3-17f9-4031-89e2-e98bc147614a",
+			key_filepath: "./AuthKey_V63QY3U9RH.p8",
+			duration: 1200,
+			in_house: false
+		)
   	end
 
 	# ***************************************************** #
@@ -78,9 +88,15 @@ platform :ios do
 	desc "Create certificates and provisioning profiles for every app environment. This should be run once at the beginning of the project"
 	lane :create_signing_assets do
 		match(
-		  git_branch: project_name,
-		  type: "development",
-		  app_identifier: debug_identifier
+			git_branch: project_name,
+		  	type: "development",
+		  	app_identifier: debug_identifier
+		)
+
+		match(
+			git_branch: project_name,
+			type: "adhoc",
+			app_identifier: devel_identifier
 		)
 
 		match(
@@ -101,6 +117,13 @@ platform :ios do
 		  type: "development",
 		  app_identifier: debug_identifier,
 		  readonly: true
+		)
+
+		match(
+			git_branch: project_name,
+			type: "adhoc",
+			app_identifier: devel_identifier,
+			readonly: true
 		)
 
 		match(

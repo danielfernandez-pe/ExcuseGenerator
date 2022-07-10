@@ -1,13 +1,13 @@
 //
-//  HomeViewModel.swift
+//  SubscriptionsViewModel.swift
 //  ExcuseGenerator
 //
-//  Created by Daniel Fernandez Yopla on 26.10.2021.
+//  Created by Daniel Fernandez Yopla on 09.07.2022.
 //
 
 import Combine
 
-final class HomeViewModel: ViewModelType {
+final class SubscriptionsViewModel: ViewModelType {
     // MARK: - ViewModelType
 
     typealias Dependency = HasExcuseService
@@ -15,14 +15,12 @@ final class HomeViewModel: ViewModelType {
     struct Bindings {
         let giveExcuseTap: AnyPublisher<Void, Never>
         let createOwnExcuseTap: AnyPublisher<Void, Never>
-        let subscriptionsTap: AnyPublisher<Void, Never>
     }
 
     // MARK: - Coordinator Bindings
 
     private(set) var giveExcuseTapped: AnyPublisher<String, Never>!
     private(set) var createOwnExcuseTapped: AnyPublisher<Void, Never>!
-    private(set) var subscriptionsTapped: AnyPublisher<Void, Never>!
 
     // MARK: - Initialization
 
@@ -35,6 +33,5 @@ final class HomeViewModel: ViewModelType {
             .map { dependency.excuseService.getRandomExcuse() }
             .eraseToAnyPublisher()
         createOwnExcuseTapped = bindings.createOwnExcuseTap
-        subscriptionsTapped = bindings.subscriptionsTap
     }
 }

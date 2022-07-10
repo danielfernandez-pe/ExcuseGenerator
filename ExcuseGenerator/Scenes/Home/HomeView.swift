@@ -11,6 +11,7 @@ import Combine
 struct HomeView: View {
     let giveExcuseTap = PassthroughSubject<Void, Never>()
     let createOwnExcuseTap = PassthroughSubject<Void, Never>()
+    let subscriptionsTap = PassthroughSubject<Void, Never>()
 
     private let boxSize = CGSize(width: 183, height: 120)
 
@@ -35,44 +36,11 @@ struct HomeView: View {
 
                 Spacer()
 
-                Button(action: { giveExcuseTap.send(()) }, label: {
-                    VStack(alignment: .leading) {
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(Color(R.color.alwaysWhite.name))
-                            Spacer()
-                        Text(L.giveMeExcuse())
-                            .textStyle(.headline)
-                            .foregroundColor(Color(R.color.alwaysWhite.name))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .padding(Appearance.Padding.normal)
-                    .background(
-                        RoundedRectangle(cornerRadius: Appearance.UIProperties.bigCornerRadius)
-                            .fill(Color(R.color.salmon.name))
-                    )
-                    .frame(size: boxSize)
-                })
-                .buttonStyle(ScaleButtonStyle())
+                giveMeAnExcuseButton
 
-                Button(action: { createOwnExcuseTap.send(()) }, label: {
-                    VStack(alignment: .leading) {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(Color(R.color.alwaysWhite.name))
-                            Spacer()
-                        Text(L.createExcuse())
-                            .textStyle(.headline)
-                            .foregroundColor(Color(R.color.alwaysWhite.name))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .padding(Appearance.Padding.normal)
-                    .background(
-                        RoundedRectangle(cornerRadius: Appearance.UIProperties.bigCornerRadius)
-                            .fill(Color(R.color.green.name))
-                    )
-                    .frame(size: boxSize)
-                })
-                .buttonStyle(ScaleButtonStyle())
-                .padding(.bottom, 50)
+                createOwnExcuseButton
+
+                subscriptionsButton
             }
             .padding(Appearance.Padding.medium)
         }
@@ -80,6 +48,65 @@ struct HomeView: View {
             Color(R.color.white.name)
                 .ignoresSafeArea()
         )
+        .navigationBarHidden(true)
+    }
+
+    private var giveMeAnExcuseButton: some View {
+        Button(action: { giveExcuseTap.send() }, label: {
+            VStack(alignment: .leading) {
+                Image(systemName: "heart.fill")
+                    .foregroundColor(Color(R.color.alwaysWhite.name))
+                    Spacer()
+                Text(L.giveMeExcuse())
+                    .textStyle(.headline)
+                    .foregroundColor(Color(R.color.alwaysWhite.name))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(Appearance.Padding.normal)
+            .background(
+                RoundedRectangle(cornerRadius: Appearance.UIProperties.bigCornerRadius)
+                    .fill(Color(R.color.salmon.name))
+            )
+            .frame(size: boxSize)
+        })
+        .buttonStyle(ScaleButtonStyle())
+    }
+
+    private var createOwnExcuseButton: some View {
+        Button(action: { createOwnExcuseTap.send() }, label: {
+            VStack(alignment: .leading) {
+                Image(systemName: "star.fill")
+                    .foregroundColor(Color(R.color.alwaysWhite.name))
+                    Spacer()
+                Text(L.createExcuse())
+                    .textStyle(.headline)
+                    .foregroundColor(Color(R.color.alwaysWhite.name))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(Appearance.Padding.normal)
+            .background(
+                RoundedRectangle(cornerRadius: Appearance.UIProperties.bigCornerRadius)
+                    .fill(Color(R.color.green.name))
+            )
+            .frame(size: boxSize)
+        })
+        .buttonStyle(ScaleButtonStyle())
+    }
+
+    private var subscriptionsButton: some View {
+        Button(action: { subscriptionsTap.send() }, label: {
+            Text("Subscriptions")
+                .frame(maxWidth: . infinity, alignment: .leading)
+                .textStyle(.headline)
+                .foregroundColor(Color(R.color.alwaysWhite.name))
+                .padding(Appearance.Padding.normal)
+                .background(
+                    RoundedRectangle(cornerRadius: Appearance.UIProperties.bigCornerRadius)
+                        .fill(Color(R.color.purple.name))
+                )
+        })
+        .frame(width: boxSize.width)
+        .buttonStyle(ScaleButtonStyle())
     }
 }
 

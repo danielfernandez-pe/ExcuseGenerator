@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F2813DC2879E7210050B889 /* SubscriptionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813DB2879E7210050B889 /* SubscriptionsCoordinator.swift */; };
+		4F2813E02879E7800050B889 /* SubscriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813DF2879E7800050B889 /* SubscriptionsViewModel.swift */; };
+		4F2813E22879E7880050B889 /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813E12879E7880050B889 /* SubscriptionsView.swift */; };
+		4F2813E42879E8690050B889 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813E32879E8690050B889 /* SubscriptionsViewController.swift */; };
+		4F2813E62879F0C10050B889 /* IapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813E52879F0C10050B889 /* IapService.swift */; };
 		4F4DA8132872F1430046785B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DA8122872F1430046785B /* R.generated.swift */; };
 		4F91025627345C2400B02C03 /* ControllerWithViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101F627345C2400B02C03 /* ControllerWithViewData.swift */; };
 		4F91025727345C2400B02C03 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101F727345C2400B02C03 /* NavigationController.swift */; };
@@ -79,6 +84,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F2813DB2879E7210050B889 /* SubscriptionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsCoordinator.swift; sourceTree = "<group>"; };
+		4F2813DF2879E7800050B889 /* SubscriptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewModel.swift; sourceTree = "<group>"; };
+		4F2813E12879E7880050B889 /* SubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsView.swift; sourceTree = "<group>"; };
+		4F2813E32879E8690050B889 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
+		4F2813E52879F0C10050B889 /* IapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IapService.swift; sourceTree = "<group>"; };
 		4F4DA8122872F1430046785B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		4F9101E427345BC700B02C03 /* ExcuseGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcuseGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9101F627345C2400B02C03 /* ControllerWithViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerWithViewData.swift; sourceTree = "<group>"; };
@@ -164,6 +174,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F1F4987287463C5005B7A95 /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				4F2813DB2879E7210050B889 /* SubscriptionsCoordinator.swift */,
+				4F2813E32879E8690050B889 /* SubscriptionsViewController.swift */,
+				4F2813DF2879E7800050B889 /* SubscriptionsViewModel.swift */,
+				4F2813E12879E7880050B889 /* SubscriptionsView.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
 		4F9101DB27345BC700B02C03 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +257,7 @@
 		4F9101FF27345C2400B02C03 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4F1F4987287463C5005B7A95 /* Subscriptions */,
 				4F91020027345C2400B02C03 /* Home */,
 				4F91020527345C2400B02C03 /* Loading */,
 				4F91020A27345C2400B02C03 /* Navigation Test */,
@@ -444,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				4F91025527345C2400B02C03 /* ExcuseService.swift */,
+				4F2813E52879F0C10050B889 /* IapService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -583,6 +606,7 @@
 				4F91025B27345C2400B02C03 /* Font+.swift in Sources */,
 				4F91028C27345C2400B02C03 /* ColoredText.swift in Sources */,
 				4F91025627345C2400B02C03 /* ControllerWithViewData.swift in Sources */,
+				4F2813E02879E7800050B889 /* SubscriptionsViewModel.swift in Sources */,
 				4F91026F27345C2400B02C03 /* Home2ViewController.swift in Sources */,
 				4F91029427345C2400B02C03 /* AppDelegate.swift in Sources */,
 				4F91028427345C2400B02C03 /* ChooseEndingView.swift in Sources */,
@@ -611,6 +635,7 @@
 				4F91028027345C2400B02C03 /* ChooseIntroViewModel.swift in Sources */,
 				4F4DA8132872F1430046785B /* R.generated.swift in Sources */,
 				4F91025D27345C2400B02C03 /* HomeView.swift in Sources */,
+				4F2813E42879E8690050B889 /* SubscriptionsViewController.swift in Sources */,
 				4F91026427345C2400B02C03 /* TestCoordinator.swift in Sources */,
 				4F91029727345C2400B02C03 /* ViewModelAttaching.swift in Sources */,
 				4F91027C27345C2400B02C03 /* ChooseMediumViewController.swift in Sources */,
@@ -620,9 +645,11 @@
 				4F91026527345C2400B02C03 /* TestViewModel.swift in Sources */,
 				4F91027E27345C2400B02C03 /* ChooseState.swift in Sources */,
 				4F91029827345C2400B02C03 /* ViewDataType.swift in Sources */,
+				4F2813E62879F0C10050B889 /* IapService.swift in Sources */,
 				4F91026B27345C2400B02C03 /* Test2ViewModel.swift in Sources */,
 				4F91026027345C2400B02C03 /* LoadingCoordinator.swift in Sources */,
 				4F91025A27345C2400B02C03 /* View+.swift in Sources */,
+				4F2813E22879E7880050B889 /* SubscriptionsView.swift in Sources */,
 				4F91025927345C2400B02C03 /* Shape+.swift in Sources */,
 				4F91027527345C2400B02C03 /* ModalNavigationCoordinator.swift in Sources */,
 				4F91029A27345C2400B02C03 /* ExcuseService.swift in Sources */,
@@ -633,6 +660,7 @@
 				4F91027A27345C2400B02C03 /* ChooseMediumViewModel.swift in Sources */,
 				4F91028827345C2400B02C03 /* HighlightedButton.swift in Sources */,
 				4F91027627345C2400B02C03 /* ExcuseResultViewModel.swift in Sources */,
+				4F2813DC2879E7210050B889 /* SubscriptionsCoordinator.swift in Sources */,
 				4F91027827345C2400B02C03 /* ExcuseResultView.swift in Sources */,
 				4F91027927345C2400B02C03 /* ExcuseResultCoordinator.swift in Sources */,
 				4F91028A27345C2400B02C03 /* ScaleButtonStyle.swift in Sources */,
@@ -677,6 +705,103 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4F77DBCE287B7039009A5D4A /* Devel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Devel;
+		};
+		4F77DBCF287B7039009A5D4A /* Devel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 4RGG6YXDS6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExcuseGenerator/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danielfcodes.ExcuseGenerator.devel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc danielfcodes.ExcuseGenerator.devel";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEVEL;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Devel;
+		};
 		4F9101F027345BC800B02C03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -739,7 +864,7 @@
 			};
 			name = Debug;
 		};
-		4F9101F127345BC800B02C03 /* Release */ = {
+		4F9101F127345BC800B02C03 /* Appstore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -793,7 +918,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Appstore;
 		};
 		4F9101F327345BC800B02C03 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -829,7 +954,7 @@
 			};
 			name = Debug;
 		};
-		4F9101F427345BC800B02C03 /* Release */ = {
+		4F9101F427345BC800B02C03 /* Appstore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -856,12 +981,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = danielfcodes.ExcuseGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore danielfcodes.ExcuseGenerator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPSTORE;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = Release;
+			name = Appstore;
 		};
 /* End XCBuildConfiguration section */
 
@@ -870,19 +996,21 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F9101F027345BC800B02C03 /* Debug */,
-				4F9101F127345BC800B02C03 /* Release */,
+				4F77DBCE287B7039009A5D4A /* Devel */,
+				4F9101F127345BC800B02C03 /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Appstore;
 		};
 		4F9101F227345BC800B02C03 /* Build configuration list for PBXNativeTarget "ExcuseGenerator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F9101F327345BC800B02C03 /* Debug */,
-				4F9101F427345BC800B02C03 /* Release */,
+				4F77DBCF287B7039009A5D4A /* Devel */,
+				4F9101F427345BC800B02C03 /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Appstore;
 		};
 /* End XCConfigurationList section */
 

@@ -14,13 +14,9 @@ final class HomeViewController: UIHostingController<HomeView>, ViewModelAttachin
     var bindings: HomeViewModel.Bindings {
         HomeViewModel.Bindings(
             giveExcuseTap: rootView.giveExcuseTap.eraseToAnyPublisher(),
-            createOwnExcuseTap: rootView.createOwnExcuseTap.eraseToAnyPublisher()
+            createOwnExcuseTap: rootView.createOwnExcuseTap.eraseToAnyPublisher(),
+            subscriptionsTap: rootView.subscriptionsTap.eraseToAnyPublisher()
         )
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }
 
