@@ -20,8 +20,9 @@ final class SubscriptionsCoordinator: BaseCoordinator<RouterResult<Void>> {
     }
 
     override func start() -> AnyPublisher<CoordinationResult, Never> {
-        let view = SubscriptionsView()
-        let viewController = SubscriptionsViewController(rootView: view)
+        let viewData = SubscriptionsView.ViewData()
+        let view = SubscriptionsView(viewData: viewData)
+        let viewController = SubscriptionsViewController(viewData: viewData, rootView: view)
         let viewModel = viewController.attach(wrapper: ViewModelWrapper<SubscriptionsViewModel>(dependencies))
 
         router.present(viewController, animated: true)
@@ -30,7 +31,13 @@ final class SubscriptionsCoordinator: BaseCoordinator<RouterResult<Void>> {
             .filter { $0 == viewController }
             .map { _ in RouterResult<Void>.dismissedByRouter }
 
-        return dismissed
+        let closeTapped = viewModel.closeTapped
+            .compactMap { [weak self] _ -> RouterResult<Void>? in
+                guard let self = self else { return nil }
+                return RouterResult<Void>.dismiss(router: self.router)
+            }
+
+        return dismissed.merge(with: closeTapped)
             .eraseToAnyPublisher()
     }
 }

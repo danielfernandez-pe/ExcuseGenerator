@@ -7,7 +7,9 @@
 
 import Foundation
 
-typealias AllDependencies = HasDummyManager & HasExcuseService
+typealias AllDependencies = HasDummyManager &
+                            HasExcuseService &
+HasIapManager
 
 protocol HasDummyManager {}
 
@@ -15,10 +17,16 @@ protocol HasExcuseService {
     var excuseService: ExcuseServiceType { get }
 }
 
+protocol HasIapManager {
+    var iapManager: IapManagerType { get }
+}
+
 struct AppDependency: AllDependencies {
     let excuseService: ExcuseServiceType
+    let iapManager: IapManagerType
 
     init() {
         excuseService = ExcuseService()
+        iapManager = IapManager()
     }
 }

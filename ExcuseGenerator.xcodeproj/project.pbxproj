@@ -11,8 +11,13 @@
 		4F2813E02879E7800050B889 /* SubscriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813DF2879E7800050B889 /* SubscriptionsViewModel.swift */; };
 		4F2813E22879E7880050B889 /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813E12879E7880050B889 /* SubscriptionsView.swift */; };
 		4F2813E42879E8690050B889 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813E32879E8690050B889 /* SubscriptionsViewController.swift */; };
-		4F2813E62879F0C10050B889 /* IapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813E52879F0C10050B889 /* IapService.swift */; };
+		4F2813E62879F0C10050B889 /* IapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2813E52879F0C10050B889 /* IapManager.swift */; };
 		4F4DA8132872F1430046785B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4DA8122872F1430046785B /* R.generated.swift */; };
+		4F77DBD3287C30C7009A5D4A /* StoreProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77DBD2287C30C7009A5D4A /* StoreProduct.swift */; };
+		4F77DBD5287C3280009A5D4A /* NumberFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77DBD4287C3280009A5D4A /* NumberFormatter+.swift */; };
+		4F77DBD7287C3384009A5D4A /* IapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77DBD6287C3384009A5D4A /* IapService.swift */; };
+		4F77DBDA287C33C4009A5D4A /* IapProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77DBD9287C33C4009A5D4A /* IapProduct.swift */; };
+		4F77DBDD287C347B009A5D4A /* ReceiptValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77DBDC287C347B009A5D4A /* ReceiptValidation.swift */; };
 		4F91025627345C2400B02C03 /* ControllerWithViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101F627345C2400B02C03 /* ControllerWithViewData.swift */; };
 		4F91025727345C2400B02C03 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101F727345C2400B02C03 /* NavigationController.swift */; };
 		4F91025827345C2400B02C03 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101FA27345C2400B02C03 /* UIBarButtonItem+.swift */; };
@@ -88,8 +93,13 @@
 		4F2813DF2879E7800050B889 /* SubscriptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewModel.swift; sourceTree = "<group>"; };
 		4F2813E12879E7880050B889 /* SubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsView.swift; sourceTree = "<group>"; };
 		4F2813E32879E8690050B889 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
-		4F2813E52879F0C10050B889 /* IapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IapService.swift; sourceTree = "<group>"; };
+		4F2813E52879F0C10050B889 /* IapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IapManager.swift; sourceTree = "<group>"; };
 		4F4DA8122872F1430046785B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		4F77DBD2287C30C7009A5D4A /* StoreProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreProduct.swift; sourceTree = "<group>"; };
+		4F77DBD4287C3280009A5D4A /* NumberFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+.swift"; sourceTree = "<group>"; };
+		4F77DBD6287C3384009A5D4A /* IapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IapService.swift; sourceTree = "<group>"; };
+		4F77DBD9287C33C4009A5D4A /* IapProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IapProduct.swift; sourceTree = "<group>"; };
+		4F77DBDC287C347B009A5D4A /* ReceiptValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptValidation.swift; sourceTree = "<group>"; };
 		4F9101E427345BC700B02C03 /* ExcuseGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcuseGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9101F627345C2400B02C03 /* ControllerWithViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerWithViewData.swift; sourceTree = "<group>"; };
 		4F9101F727345C2400B02C03 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -185,6 +195,41 @@
 			path = Subscriptions;
 			sourceTree = "<group>";
 		};
+		4F77DBD0287C308A009A5D4A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4F77DBD1287C3097009A5D4A /* IAP */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4F77DBD1287C3097009A5D4A /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				4F2813E52879F0C10050B889 /* IapManager.swift */,
+				4F77DBD2287C30C7009A5D4A /* StoreProduct.swift */,
+				4F77DBD4287C3280009A5D4A /* NumberFormatter+.swift */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
+		4F77DBD8287C33B9009A5D4A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F77DBDB287C346B009A5D4A /* IAP */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F77DBDB287C346B009A5D4A /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				4F77DBD9287C33C4009A5D4A /* IapProduct.swift */,
+				4F77DBDC287C347B009A5D4A /* ReceiptValidation.swift */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
 		4F9101DB27345BC700B02C03 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +256,8 @@
 				4F9101F527345C2400B02C03 /* Helpers */,
 				4F91025027345C2400B02C03 /* Protocols */,
 				4F91023827345C2400B02C03 /* Views */,
+				4F77DBD8287C33B9009A5D4A /* Models */,
+				4F77DBD0287C308A009A5D4A /* Managers */,
 				4F91025427345C2400B02C03 /* Services */,
 				4F9101FF27345C2400B02C03 /* Scenes */,
 				4F91024127345C2400B02C03 /* Resources */,
@@ -466,7 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				4F91025527345C2400B02C03 /* ExcuseService.swift */,
-				4F2813E52879F0C10050B889 /* IapService.swift */,
+				4F77DBD6287C3384009A5D4A /* IapService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -612,6 +659,7 @@
 				4F91028427345C2400B02C03 /* ChooseEndingView.swift in Sources */,
 				4F91028627345C2400B02C03 /* ChooseEndingViewController.swift in Sources */,
 				4F91029027345C2400B02C03 /* AppDependency.swift in Sources */,
+				4F77DBDD287C347B009A5D4A /* ReceiptValidation.swift in Sources */,
 				4F91027227345C2400B02C03 /* ModalNavigationViewController.swift in Sources */,
 				4F91028227345C2400B02C03 /* ChooseIntroViewController.swift in Sources */,
 				4F91028D27345C2400B02C03 /* FrameSizeModifier.swift in Sources */,
@@ -620,10 +668,12 @@
 				4F91027D27345C2400B02C03 /* ChooseMediumView.swift in Sources */,
 				4F91025727345C2400B02C03 /* NavigationController.swift in Sources */,
 				4F91025827345C2400B02C03 /* UIBarButtonItem+.swift in Sources */,
+				4F77DBD5287C3280009A5D4A /* NumberFormatter+.swift in Sources */,
 				4F91029527345C2400B02C03 /* SceneDelegate.swift in Sources */,
 				4F91029127345C2400B02C03 /* AppCoordinator.swift in Sources */,
 				4F91025E27345C2400B02C03 /* HomeViewController.swift in Sources */,
 				4F91027727345C2400B02C03 /* ExcuseResultViewController.swift in Sources */,
+				4F77DBDA287C33C4009A5D4A /* IapProduct.swift in Sources */,
 				4F91026A27345C2400B02C03 /* Test2View.swift in Sources */,
 				4F91026D27345C2400B02C03 /* Test2Coordinator.swift in Sources */,
 				4F91027327345C2400B02C03 /* ModalNavigationViewModel.swift in Sources */,
@@ -635,6 +685,7 @@
 				4F91028027345C2400B02C03 /* ChooseIntroViewModel.swift in Sources */,
 				4F4DA8132872F1430046785B /* R.generated.swift in Sources */,
 				4F91025D27345C2400B02C03 /* HomeView.swift in Sources */,
+				4F77DBD3287C30C7009A5D4A /* StoreProduct.swift in Sources */,
 				4F2813E42879E8690050B889 /* SubscriptionsViewController.swift in Sources */,
 				4F91026427345C2400B02C03 /* TestCoordinator.swift in Sources */,
 				4F91029727345C2400B02C03 /* ViewModelAttaching.swift in Sources */,
@@ -645,7 +696,8 @@
 				4F91026527345C2400B02C03 /* TestViewModel.swift in Sources */,
 				4F91027E27345C2400B02C03 /* ChooseState.swift in Sources */,
 				4F91029827345C2400B02C03 /* ViewDataType.swift in Sources */,
-				4F2813E62879F0C10050B889 /* IapService.swift in Sources */,
+				4F77DBD7287C3384009A5D4A /* IapService.swift in Sources */,
+				4F2813E62879F0C10050B889 /* IapManager.swift in Sources */,
 				4F91026B27345C2400B02C03 /* Test2ViewModel.swift in Sources */,
 				4F91026027345C2400B02C03 /* LoadingCoordinator.swift in Sources */,
 				4F91025A27345C2400B02C03 /* View+.swift in Sources */,

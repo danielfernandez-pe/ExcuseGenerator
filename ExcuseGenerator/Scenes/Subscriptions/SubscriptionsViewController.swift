@@ -9,22 +9,19 @@ import UIKit
 import Combine
 import SwiftUI
 
-final class SubscriptionsViewController: UIHostingController<SubscriptionsView>, ViewModelAttaching {
+final class SubscriptionsViewController: ControllerWithViewData<SubscriptionsView, SubscriptionsView.ViewData>, ViewModelAttaching {
     var viewModel: SubscriptionsViewModel!
     var bindings: SubscriptionsViewModel.Bindings {
         SubscriptionsViewModel.Bindings(
-            giveExcuseTap: rootView.giveExcuseTap.eraseToAnyPublisher(),
-            createOwnExcuseTap: rootView.createOwnExcuseTap.eraseToAnyPublisher()
+            closeTap: rootView.closeTap.eraseToAnyPublisher()
         )
     }
-}
 
-// MARK: - Create
+    private var cancellables = Set<AnyCancellable>()
 
-extension SubscriptionsViewController {
-    static func create() -> SubscriptionsViewController {
-        SubscriptionsViewController(
-            rootView: SubscriptionsView()
-        )
+    func setupBindings(viewModel: SubscriptionsViewModel) {
+        viewModel.fetchedProducts
+            .assign(to: \.products, on: viewData)
+            .store(in: &cancellables)
     }
 }

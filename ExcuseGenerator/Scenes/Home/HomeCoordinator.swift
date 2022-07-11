@@ -66,7 +66,15 @@ final class HomeCoordinator: BaseCoordinator<Void> {
                 let modalRouter = ModalNavigationRouter(parentViewController: viewController, presentationStyle: .fullScreen)
                 return self.showSubscriptions(router: modalRouter)
             }
-            .sink(receiveValue: { _ in
+            .sink(receiveValue: { result in
+                switch result {
+                case .finished(let router, _):
+                    router.dismiss(animated: true)
+                case .dismiss(let router):
+                    router.dismiss(animated: true)
+                default:
+                    break
+                }
             })
             .store(in: &cancellables)
 

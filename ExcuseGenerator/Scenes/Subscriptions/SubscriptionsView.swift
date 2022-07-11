@@ -9,14 +9,20 @@ import SwiftUI
 import Combine
 
 struct SubscriptionsView: View {
-    let giveExcuseTap = PassthroughSubject<Void, Never>()
-    let createOwnExcuseTap = PassthroughSubject<Void, Never>()
+    class ViewData: ObservableObject {
+        @Published var products: [IapProduct] = []
+    }
+
+    @ObservedObject var viewData: ViewData
+    let closeTap = PassthroughSubject<Void, Never>()
 
     var body: some View {
         VStack {
             ScrollView {
                 VStack {
-                    Text("Subscription product")
+                    ForEach(viewData.products) { product in
+                        Text(product.name)
+                    }
                 }
                 .padding()
             }
@@ -26,11 +32,18 @@ struct SubscriptionsView: View {
                 .ignoresSafeArea()
         )
         .navigationTitle("Subscriptions")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Close") {
+                    closeTap.send()
+                }
+            }
+        }
     }
 }
 
 struct SubscriptionsView_Previews: PreviewProvider {
     static var previews: some View {
-        SubscriptionsView()
+        SubscriptionsView(viewData: .init())
     }
 }
