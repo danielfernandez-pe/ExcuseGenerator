@@ -9,9 +9,9 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
+    @ObservedObject var viewModel: HomeViewModel
     let giveExcuseTap = PassthroughSubject<Void, Never>()
     let createOwnExcuseTap = PassthroughSubject<Void, Never>()
-    let subscriptionsTap = PassthroughSubject<Void, Never>()
 
     private let boxSize = CGSize(width: 183, height: 120)
 
@@ -94,7 +94,7 @@ struct HomeView: View {
     }
 
     private var subscriptionsButton: some View {
-        Button(action: { subscriptionsTap.send() }, label: {
+        Button(action: { viewModel.openSubscriptions.send() }, label: {
             Text("Subscriptions")
                 .frame(maxWidth: . infinity, alignment: .leading)
                 .textStyle(.headline)
@@ -112,6 +112,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewModel: .init(excuseService: ExcuseService()))
     }
 }

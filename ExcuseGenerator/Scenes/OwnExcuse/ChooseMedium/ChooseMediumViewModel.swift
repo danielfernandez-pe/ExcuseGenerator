@@ -8,7 +8,7 @@
 
 import Combine
 
-final class ChooseMediumViewModel: ViewModelType {
+final class ChooseMediumViewModel {
     // MARK: - ViewModelType
 
     struct Dependency {

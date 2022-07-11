@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-struct LoadingView: View, ViewDataType {
+struct LoadingView: View {
     class ViewData: ObservableObject {
     }
 

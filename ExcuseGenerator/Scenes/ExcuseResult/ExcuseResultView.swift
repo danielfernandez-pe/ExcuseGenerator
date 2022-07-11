@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-struct ExcuseResultView: View, ViewDataType {
+struct ExcuseResultView: View {
     class ViewData: ObservableObject {
         @Published var excuse = ""
     }

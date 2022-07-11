@@ -10,5 +10,5 @@ import Foundation
 struct IapProduct: Identifiable, Hashable {
     var id: String
     var name: String
-    var price: Double
+    var price: String
 }

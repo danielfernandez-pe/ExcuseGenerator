@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class ChooseIntroViewModel: ViewModelType {
+final class ChooseIntroViewModel {
     // MARK: - ViewModelType
 
     typealias Dependency = HasExcuseService

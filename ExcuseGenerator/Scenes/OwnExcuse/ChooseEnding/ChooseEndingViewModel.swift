@@ -8,7 +8,7 @@
 
 import Combine
 
-final class ChooseEndingViewModel: ViewModelType {
+final class ChooseEndingViewModel {
     // MARK: - ViewModelType
 
     struct Dependency {

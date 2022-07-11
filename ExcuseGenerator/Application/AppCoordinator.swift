@@ -28,7 +28,7 @@ final class AppCoordinator: BaseCoordinator<Void> {
             .sink(receiveCompletion: { [weak self] _ in
                 self?.resetFlow()
             }, receiveValue: {})
-            .store(in: &cancellables)
+            .store(in: cancelBag)
     }
 
     private func resetFlow() {

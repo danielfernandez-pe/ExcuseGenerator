@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-final class LoadingViewModel: ViewModelType {
+final class LoadingViewModel {
     // MARK: - ViewModelType
 
     typealias Dependency = HasDummyManager

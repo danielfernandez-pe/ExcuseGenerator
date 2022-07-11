@@ -21,62 +21,53 @@ final class HomeCoordinator: BaseCoordinator<Void> {
     }
 
     override func start() -> AnyPublisher<CoordinationResult, Never> {
-        let viewController = HomeViewController.create()
-        let viewModel = viewController.attach(wrapper: ViewModelWrapper<HomeViewModel>(dependencies))
+        let viewModel = HomeViewModel(excuseService: ExcuseService())
+        let viewController = BaseViewController(rootView: HomeView(viewModel: viewModel))
         let navigationController = NavigationController(rootViewController: viewController)
 
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
 
-        viewModel.createOwnExcuseTapped
-            .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
-                guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
-                let navigationRouter = NavigationRouter(navigationController: navigationController)
-                return self.showChooseIntro(router: navigationRouter)
-            }
-            .sink(receiveValue: { result in
-                switch result {
-                case .finished(let router, _):
-                    router.popToRoot()
-                default:
-                    break
-                }
-            })
-            .store(in: &cancellables)
+//        viewModel.createOwnExcuseTapped
+//            .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
+//                guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
+//                let navigationRouter = NavigationRouter(navigationController: navigationController)
+//                return self.showChooseIntro(router: navigationRouter)
+//            }
+//            .sink(receiveValue: { result in
+//                switch result {
+//                case .finished(let router, _):
+//                    router.popToRoot()
+//                default:
+//                    break
+//                }
+//            })
+//            .store(in: cancelBag)
 
-        viewModel.giveExcuseTapped
-            .flatMap { [weak self] excuse -> AnyPublisher<RouterResult<Void>, Never> in
-                guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
-                let navigationRouter = NavigationRouter(navigationController: navigationController)
-                return self.showLoading(router: navigationRouter, excuse: excuse)
-            }
-            .sink(receiveValue: { result in
-                switch result {
-                case .finished(let router, _):
-                    router.popToRoot()
-                default:
-                    break
-                }
-            })
-            .store(in: &cancellables)
+//        viewModel.giveExcuseTapped
+//            .flatMap { [weak self] excuse -> AnyPublisher<RouterResult<Void>, Never> in
+//                guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
+//                let navigationRouter = NavigationRouter(navigationController: navigationController)
+//                return self.showLoading(router: navigationRouter, excuse: excuse)
+//            }
+//            .sink(receiveValue: { result in
+//                switch result {
+//                case .finished(_):
+//                    router.popToRoot()
+//                default:
+//                    break
+//                }
+//            })
+//            .store(in: cancelBag)
 
-        viewModel.subscriptionsTapped
+        viewModel.openSubscriptions
             .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
                 guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
                 let modalRouter = ModalNavigationRouter(parentViewController: viewController, presentationStyle: .fullScreen)
                 return self.showSubscriptions(router: modalRouter)
             }
-            .sink(receiveValue: { result in
-                switch result {
-                case .finished(let router, _):
-                    router.dismiss(animated: true)
-                case .dismiss(let router):
-                    router.dismiss(animated: true)
-                default:
-                    break
-                }
-            })
-            .store(in: &cancellables)
+            .sink(receiveValue: { _ in })
+            .store(in: cancelBag)
 
         return Empty<CoordinationResult, Never>(completeImmediately: false).eraseToAnyPublisher()
     }
@@ -93,5 +84,13 @@ extension HomeCoordinator {
 
     private func showSubscriptions(router: Router) -> AnyPublisher<RouterResult<Void>, Never> {
         coordinate(to: SubscriptionsCoordinator(router: router, dependencies: dependencies))
+            .flatMap { result -> CoordinatingResult<RouterResult<Void>> in
+                guard result != .dismissedByRouter else {
+                    return Just(result).eraseToAnyPublisher()
+                }
+                return router.dismiss(animated: true, returning: result)
+            }
+            .prefix(1)
+            .eraseToAnyPublisher()
     }
 }

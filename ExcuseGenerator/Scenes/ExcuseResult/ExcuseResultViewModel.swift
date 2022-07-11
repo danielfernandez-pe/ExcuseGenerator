@@ -8,7 +8,7 @@
 
 import Combine
 
-final class ExcuseResultViewModel: ViewModelType {
+final class ExcuseResultViewModel {
     // MARK: - ViewModelType
 
     struct Dependency {

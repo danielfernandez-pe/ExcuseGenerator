@@ -6,37 +6,27 @@
 //
 
 import Combine
+import CoordinatorRouter
 
 // swiftlint:disable action_happened
-final class SubscriptionsViewModel: ViewModelType {
-    // MARK: - ViewModelType
+final class SubscriptionsViewModel: ObservableObject {
+    let closeTap = PassthroughSubject<Void, Never>()
 
-    typealias Dependency = HasIapManager
+    @Published var products: [IapProduct] = []
 
-    struct Bindings {
-        let closeTap: AnyPublisher<Void, Never>
-    }
-
-    private(set) var fetchedProducts: AnyPublisher<[IapProduct], Never>!
-
-    // MARK: - Coordinator Bindings
-
-    var closeTapped: AnyPublisher<Void, Never>!
+    private let iapManager: IapManagerType
 
     // MARK: - Initialization
 
-    init(dependency: Dependency, bindings: Bindings) {
-        setupActions(dependency: dependency, bindings: bindings)
-        setupDataUpdates(dependency: dependency, bindings: bindings)
+    init(iapManager: IapManagerType) {
+        self.iapManager = iapManager
+        setupDataUpdates()
     }
 
-    func setupActions(dependency: Dependency, bindings: Bindings) {
-        closeTapped = bindings.closeTap
-    }
-
-    func setupDataUpdates(dependency: Dependency, bindings: Bindings) {
-        fetchedProducts = dependency.iapManager.availableProducts
-            .compactMap { result -> [IapProduct]? in
+    func setupDataUpdates() {
+        iapManager.availableProducts
+            .compactMap { [weak self] result -> [IapProduct]? in
+                guard let self = self else { return nil }
                 switch result {
                 case .empty, .error:
                     return nil
@@ -45,11 +35,11 @@ final class SubscriptionsViewModel: ViewModelType {
                         IapProduct(
                             id: product.productIdentifier,
                             name: product.localizedTitle,
-                            price: Double(truncating: product.price)
+                            price: self.iapManager.getProductPrice(for: product)
                         )
                     }
                 }
             }
-            .eraseToAnyPublisher()
+            .assign(to: &$products)
     }
 }

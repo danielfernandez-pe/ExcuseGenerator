@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-struct ChooseEndingView: View, ViewDataType {
+struct ChooseEndingView: View {
     class ViewData: ObservableObject {
         @Published var state: ChooseState = .loading
     }

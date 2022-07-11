@@ -35,7 +35,7 @@ protocol IapManagerType {
     func restorePurchases()
     func getReceipt() -> String?
     func cleanTransactions()
-    func getProductPrice(for product: IapManager.StoreProduct) -> String
+    func getProductPrice(for product: SKProduct) -> String
 }
 
 final class IapManager: NSObject, IapManagerType {
@@ -107,15 +107,9 @@ final class IapManager: NSObject, IapManagerType {
         return nil
     }
 
-    func getProductPrice(for product: IapManager.StoreProduct) -> String {
-        switch fetchedProducts.value {
-        case .empty, .error:
-            return ""
-        case .fetched(let products):
-            guard let product = products.first(where: { $0.productIdentifier == product.rawValue }) else { return "" }
-            let formatter = NumberFormatter()
-            return formatter.subscriptionPrice(price: product.price, priceLocale: product.priceLocale) ?? ""
-        }
+    func getProductPrice(for product: SKProduct) -> String {
+        let formatter = NumberFormatter()
+        return formatter.subscriptionPrice(price: product.price, priceLocale: product.priceLocale) ?? ""
     }
 
     private func refreshReceipt() {

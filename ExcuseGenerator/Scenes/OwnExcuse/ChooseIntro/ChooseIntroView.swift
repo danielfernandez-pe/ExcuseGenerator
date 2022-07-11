@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct ChooseIntroView: View, ViewDataType {
+struct ChooseIntroView: View {
     class ViewData: ObservableObject {
         @Published var state: ChooseState = .loading
     }

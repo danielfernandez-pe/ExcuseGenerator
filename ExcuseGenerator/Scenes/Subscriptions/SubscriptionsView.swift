@@ -9,19 +9,16 @@ import SwiftUI
 import Combine
 
 struct SubscriptionsView: View {
-    class ViewData: ObservableObject {
-        @Published var products: [IapProduct] = []
-    }
-
-    @ObservedObject var viewData: ViewData
-    let closeTap = PassthroughSubject<Void, Never>()
+    @ObservedObject var viewModel: SubscriptionsViewModel
 
     var body: some View {
         VStack {
             ScrollView {
-                VStack {
-                    ForEach(viewData.products) { product in
-                        Text(product.name)
+                VStack(spacing: 16) {
+                    ForEach(viewModel.products) { product in
+                        SubscriptionView(product: product, isBuying: true) {
+                            print("buy!")
+                        }
                     }
                 }
                 .padding()
@@ -35,15 +32,43 @@ struct SubscriptionsView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Close") {
-                    closeTap.send()
+                    viewModel.closeTap.send()
                 }
             }
         }
     }
 }
 
+struct SubscriptionView: View {
+    let product: IapProduct
+    let isBuying: Bool
+    let buyAction: () -> Void
+
+    var body: some View {
+        VStack {
+            HStack {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(product.name)
+
+                    Text(product.price)
+                }
+
+                Spacer()
+
+                if isBuying {
+                    ProgressView()
+                } else {
+                    Button("Buy", action: buyAction)
+                }
+            }
+
+            Divider()
+        }
+    }
+}
+
 struct SubscriptionsView_Previews: PreviewProvider {
     static var previews: some View {
-        SubscriptionsView(viewData: .init())
+        SubscriptionsView(viewModel: .init(iapManager: IapManager()))
     }
 }
