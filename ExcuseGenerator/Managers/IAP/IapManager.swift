@@ -124,7 +124,8 @@ final class IapManager: NSObject, IapManagerType {
     }
 
     func handlePurchasedProduct(product: IapProduct, receiptValidation: ReceiptValidation) {
-        UserDefaultsConfig.iapProductIdentifiers.insert(product.id)
+        UserDefaultsConfig.iapProductIdentifiers.append(product.id)
+
         guard let storeProduct = StoreProduct(id: product.id) else { return }
         switch storeProduct {
         case .consumable:

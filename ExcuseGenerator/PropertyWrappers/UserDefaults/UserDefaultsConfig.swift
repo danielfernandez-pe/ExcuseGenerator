@@ -13,7 +13,7 @@ enum UserDefaultKey: String {
 }
 
 struct UserDefaultsConfig {
-    @UserDefault(UserDefaultKey.iapProductIdentifiers.rawValue, defaultValue: []) static var iapProductIdentifiers: Set<String>
+    @UserDefault(UserDefaultKey.iapProductIdentifiers.rawValue, defaultValue: []) static var iapProductIdentifiers: [String]
     @UserDefault(UserDefaultKey.iapUserIsPremium.rawValue, defaultValue: false) static var iapUserIsPremium: Bool
 
     static func removeAll() {

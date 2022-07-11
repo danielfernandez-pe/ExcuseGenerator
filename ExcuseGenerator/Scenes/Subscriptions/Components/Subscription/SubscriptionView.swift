@@ -24,7 +24,12 @@ struct SubscriptionView: View {
                 if viewModel.isBuying {
                     ProgressView()
                 } else {
-                    Button(viewModel.buyButtonTitle, action: viewModel.buyProduct)
+                    if viewModel.isProductPurchased {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.green)
+                    } else {
+                        Button("Buy", action: viewModel.buyProduct)
+                    }
                 }
             }
 

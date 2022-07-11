@@ -10,10 +10,11 @@ import Combine
 import CoordinatorRouter
 
 class SubscriptionViewModel: ObservableObject, Identifiable {
-    @Published var buyButtonTitle = "Buy"
     @Published var isBuying: Bool = false
+
     let product: IapProduct
     var id: String { product.id }
+    var isProductPurchased: Bool { iapManager.isPurchased(product) }
 
     private let iapManager: IapManagerType
     private let iapService: IapServiceType
@@ -37,13 +38,9 @@ class SubscriptionViewModel: ObservableObject, Identifiable {
             .handleEvents(receiveOutput: { [weak self] state in
                 switch state {
                 case .failure:
-                    self?.buyButtonTitle = "Buy"
                     self?.isBuying = false
-                case .inProcess:
-                    self?.buyButtonTitle = "Processing..."
-                case .success:
-                    self?.buyButtonTitle = "Purchased"
-                    self?.isBuying = false
+                default:
+                    break
                 }
             })
             .filter { $0 == .success }
@@ -56,6 +53,7 @@ class SubscriptionViewModel: ObservableObject, Identifiable {
                 guard let self = self else { return }
                 self.iapManager.handlePurchasedProduct(product: self.product, receiptValidation: receiptValidation)
                 self.iapManager.cleanTransactions()
+                self.isBuying = false
             }
             .store(in: cancelBag)
     }

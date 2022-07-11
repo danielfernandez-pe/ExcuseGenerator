@@ -50,6 +50,9 @@
             ReferencedContainer = "container:ExcuseGenerator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../ExcuseGenerator/Managers/IAP/Configuration.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Debug"

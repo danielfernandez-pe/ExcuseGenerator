@@ -1,0 +1,106 @@
+{
+  "identifier" : "EBF4D286",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "3.99",
+      "familyShareable" : false,
+      "internalID" : "AAB0F056",
+      "localizations" : [
+        {
+          "description" : "Use only at work",
+          "displayName" : "Special excuse for your boss",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Ussar solo en el trabajo",
+          "displayName" : "Excusa especial para tu jefe",
+          "locale" : "es_MX"
+        }
+      ],
+      "productID" : "excusator.consumable.boss",
+      "referenceName" : "Boss excuse",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "13FA2EE0",
+      "localizations" : [
+
+      ],
+      "name" : "Basic",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "780E36BB",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Premium",
+              "displayName" : "Monthly subscription",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "Premium",
+              "displayName" : "Suscripción mensual",
+              "locale" : "es_MX"
+            }
+          ],
+          "productID" : "excusator.subscriptions.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly",
+          "subscriptionGroupID" : "13FA2EE0",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "19.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "5D3B0B3C",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Premium",
+              "displayName" : "Yearly subscription",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "Premium",
+              "displayName" : "Suscripción anual",
+              "locale" : "es_MX"
+            }
+          ],
+          "productID" : "excusator.subscriptions.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly",
+          "subscriptionGroupID" : "13FA2EE0",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 2
+  }
+}

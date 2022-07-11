@@ -134,6 +134,7 @@
 		4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		4FD9F231287C771000B64EB1 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		4FD9F233287C771E00B64EB1 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
+		4FD9F235287C954100B64EB1 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +175,7 @@
 				4F2813E52879F0C10050B889 /* IapManager.swift */,
 				4F77DBD2287C30C7009A5D4A /* StoreProduct.swift */,
 				4F77DBD4287C3280009A5D4A /* NumberFormatter+.swift */,
+				4FD9F235287C954100B64EB1 /* Configuration.storekit */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
