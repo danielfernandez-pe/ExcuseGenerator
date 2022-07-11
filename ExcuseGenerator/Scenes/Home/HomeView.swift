@@ -41,6 +41,10 @@ struct HomeView: View {
                 createOwnExcuseButton
 
                 subscriptionsButton
+
+                premiumContentButton
+
+                removeLocalDataButton
             }
             .padding(Appearance.Padding.medium)
         }
@@ -108,10 +112,49 @@ struct HomeView: View {
         .frame(width: boxSize.width)
         .buttonStyle(ScaleButtonStyle())
     }
+
+    private var premiumContentButton: some View {
+        Button(action: { viewModel.openPremiumContent.send() }, label: {
+            Text("Premium content")
+                .frame(maxWidth: . infinity, alignment: .leading)
+                .textStyle(.headline)
+                .foregroundColor(Color(R.color.white.name))
+                .padding(Appearance.Padding.normal)
+                .background(
+                    RoundedRectangle(cornerRadius: Appearance.UIProperties.bigCornerRadius)
+                        .fill(Color(R.color.green.name))
+                )
+        })
+        .frame(width: boxSize.width)
+        .buttonStyle(ScaleButtonStyle())
+        .disabled(!viewModel.isUserPremium)
+        .opacity(viewModel.isUserPremium ? 1 : 0.5)
+    }
+
+    private var removeLocalDataButton: some View {
+        Button(action: { viewModel.removeSubscriptions.send() }, label: {
+            Text("Remove local data")
+                .frame(maxWidth: . infinity, alignment: .leading)
+                .textStyle(.headline)
+                .foregroundColor(Color(R.color.black.name))
+                .padding(Appearance.Padding.normal)
+                .background(
+                    RoundedRectangle(cornerRadius: Appearance.UIProperties.bigCornerRadius)
+                        .fill(Color(R.color.yellow.name))
+                )
+        })
+        .frame(width: boxSize.width)
+        .buttonStyle(ScaleButtonStyle())
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: .init(excuseService: ExcuseService()))
+        HomeView(
+            viewModel: .init(
+                iapManager: IapManager(),
+                excuseService: ExcuseService()
+            )
+        )
     }
 }

@@ -17,9 +17,9 @@ extension IapManager {
                 self = .consumable(consumable)
             } else if let subscription = Subscription(rawValue: id) {
                 self = .subscription(subscription)
+            } else {
+                return nil
             }
-
-            return nil
         }
     }
 

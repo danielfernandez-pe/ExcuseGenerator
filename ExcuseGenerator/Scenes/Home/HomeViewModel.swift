@@ -6,11 +6,18 @@
 //
 
 import Combine
+import CoordinatorRouter
 
 final class HomeViewModel: ObservableObject {
-    let openSubscriptions = PassthroughSubject<Void, Never>()
+    @Published var isUserPremium = false
 
+    let openSubscriptions = PassthroughSubject<Void, Never>()
+    let removeSubscriptions = PassthroughSubject<Void, Never>()
+    let openPremiumContent = PassthroughSubject<Void, Never>()
+
+    private let iapManager: IapManagerType
     private let excuseService: ExcuseServiceType
+    private let cancelBag: CancelBag = .init()
 
 //    struct Bindings {
 //        let giveExcuseTap: AnyPublisher<Void, Never>
@@ -26,11 +33,22 @@ final class HomeViewModel: ObservableObject {
 
     // MARK: - Initialization
 
-    init(excuseService: ExcuseServiceType) {
+    init(iapManager: IapManagerType, excuseService: ExcuseServiceType) {
+        self.iapManager = iapManager
         self.excuseService = excuseService
+        setupActions()
     }
 
     func setupActions() {
+        removeSubscriptions
+            .sink { _ in
+                UserDefaultsConfig.iapProductIdentifiers = []
+                UserDefaultsConfig.iapUserIsPremium = false
+            }
+            .store(in: cancelBag)
+
+        iapManager.isUserPremium
+            .assign(to: &$isUserPremium)
 //        giveExcuseTapped = bindings.giveExcuseTap
 //            .map { dependency.excuseService.getRandomExcuse() }
 //            .eraseToAnyPublisher()

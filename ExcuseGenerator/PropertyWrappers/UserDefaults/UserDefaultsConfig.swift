@@ -7,6 +7,7 @@
 
 import Foundation
 
+// swiftlint:disable explicit_enum_raw_value
 enum UserDefaultKey: String {
     case iapProductIdentifiers
     case iapUserIsPremium

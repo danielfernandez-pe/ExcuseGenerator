@@ -17,6 +17,9 @@
 		4F77DBD7287C3384009A5D4A /* IapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77DBD6287C3384009A5D4A /* IapService.swift */; };
 		4F77DBDA287C33C4009A5D4A /* IapProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77DBD9287C33C4009A5D4A /* IapProduct.swift */; };
 		4F77DBDD287C347B009A5D4A /* ReceiptValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77DBDC287C347B009A5D4A /* ReceiptValidation.swift */; };
+		4F8338E1287CC83800AC34CC /* PremiumContentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338E0287CC83800AC34CC /* PremiumContentCoordinator.swift */; };
+		4F8338E3287CC84000AC34CC /* PremiumContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338E2287CC84000AC34CC /* PremiumContentViewModel.swift */; };
+		4F8338E5287CC84600AC34CC /* PremiumContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338E4287CC84600AC34CC /* PremiumContentView.swift */; };
 		4F91025727345C2400B02C03 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101F727345C2400B02C03 /* NavigationController.swift */; };
 		4F91025827345C2400B02C03 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101FA27345C2400B02C03 /* UIBarButtonItem+.swift */; };
 		4F91025927345C2400B02C03 /* Shape+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101FC27345C2400B02C03 /* Shape+.swift */; };
@@ -81,6 +84,9 @@
 		4F77DBD6287C3384009A5D4A /* IapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IapService.swift; sourceTree = "<group>"; };
 		4F77DBD9287C33C4009A5D4A /* IapProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IapProduct.swift; sourceTree = "<group>"; };
 		4F77DBDC287C347B009A5D4A /* ReceiptValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptValidation.swift; sourceTree = "<group>"; };
+		4F8338E0287CC83800AC34CC /* PremiumContentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumContentCoordinator.swift; sourceTree = "<group>"; };
+		4F8338E2287CC84000AC34CC /* PremiumContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumContentViewModel.swift; sourceTree = "<group>"; };
+		4F8338E4287CC84600AC34CC /* PremiumContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumContentView.swift; sourceTree = "<group>"; };
 		4F9101E427345BC700B02C03 /* ExcuseGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcuseGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9101F727345C2400B02C03 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		4F9101FA27345C2400B02C03 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
@@ -197,6 +203,16 @@
 			path = IAP;
 			sourceTree = "<group>";
 		};
+		4F8338DF287CC82400AC34CC /* PremiumContent */ = {
+			isa = PBXGroup;
+			children = (
+				4F8338E0287CC83800AC34CC /* PremiumContentCoordinator.swift */,
+				4F8338E2287CC84000AC34CC /* PremiumContentViewModel.swift */,
+				4F8338E4287CC84600AC34CC /* PremiumContentView.swift */,
+			);
+			path = PremiumContent;
+			sourceTree = "<group>";
+		};
 		4F9101DB27345BC700B02C03 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +288,7 @@
 		4F9101FF27345C2400B02C03 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4F8338DF287CC82400AC34CC /* PremiumContent */,
 				4F1F4987287463C5005B7A95 /* Subscriptions */,
 				4F91020027345C2400B02C03 /* Home */,
 				4F91020527345C2400B02C03 /* Loading */,
@@ -591,6 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F8338E1287CC83800AC34CC /* PremiumContentCoordinator.swift in Sources */,
 				4F91025B27345C2400B02C03 /* Font+.swift in Sources */,
 				4F91028C27345C2400B02C03 /* ColoredText.swift in Sources */,
 				4F2813E02879E7800050B889 /* SubscriptionsViewModel.swift in Sources */,
@@ -608,6 +626,8 @@
 				4F91027D27345C2400B02C03 /* ChooseMediumView.swift in Sources */,
 				4F91025727345C2400B02C03 /* NavigationController.swift in Sources */,
 				4F91025827345C2400B02C03 /* UIBarButtonItem+.swift in Sources */,
+				4F8338E5287CC84600AC34CC /* PremiumContentView.swift in Sources */,
+				4F8338E3287CC84000AC34CC /* PremiumContentViewModel.swift in Sources */,
 				4F77DBD5287C3280009A5D4A /* NumberFormatter+.swift in Sources */,
 				4F91029527345C2400B02C03 /* SceneDelegate.swift in Sources */,
 				4F91029127345C2400B02C03 /* AppCoordinator.swift in Sources */,

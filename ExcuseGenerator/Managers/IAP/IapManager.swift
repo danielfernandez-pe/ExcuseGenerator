@@ -27,6 +27,7 @@ enum IAPPurchaseError: Error {
 
 protocol IapManagerType {
     var canMakePayments: Bool { get }
+    var isUserPremium: AnyPublisher<Bool, Never> { get }
     var availableProducts: AnyPublisher<IAPPurchaseFetchResult, Never> { get }
     var transactionResult: AnyPublisher<IAPTransactionResult, Never> { get }
 
@@ -45,6 +46,10 @@ final class IapManager: NSObject, IapManagerType {
         SKPaymentQueue.canMakePayments()
     }
 
+    var isUserPremium: AnyPublisher<Bool, Never> {
+        isUserPremiumSubject.eraseToAnyPublisher()
+    }
+
     var transactionResult: AnyPublisher<IAPTransactionResult, Never> {
         transactionHandler.eraseToAnyPublisher()
     }
@@ -53,6 +58,7 @@ final class IapManager: NSObject, IapManagerType {
         fetchedProducts.eraseToAnyPublisher()
     }
 
+    private let isUserPremiumSubject = CurrentValueSubject<Bool, Never>(false)
     private let fetchedProducts = CurrentValueSubject<IAPPurchaseFetchResult, Never>(.empty)
     private let transactionHandler = PassthroughSubject<IAPTransactionResult, Never>()
     private var productsRequest: SKProductsRequest?
@@ -62,6 +68,7 @@ final class IapManager: NSObject, IapManagerType {
     override init() {
         super.init()
         SKPaymentQueue.default().add(self)
+        isUserPremiumSubject.send(UserDefaultsConfig.iapUserIsPremium)
         getProducts()
     }
 
@@ -131,7 +138,9 @@ final class IapManager: NSObject, IapManagerType {
         case .consumable:
             break
         case .subscription:
-            UserDefaultsConfig.iapUserIsPremium = receiptValidation.receiptValid && !receiptValidation.receiptExpired
+            let isUserPremium = receiptValidation.receiptValid && !receiptValidation.receiptExpired
+            UserDefaultsConfig.iapUserIsPremium = isUserPremium
+            isUserPremiumSubject.send(isUserPremium)
         }
     }
 

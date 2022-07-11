@@ -1,14 +1,14 @@
 //
-//  SubscriptionsCoordinator.swift
+//  PremiumContentCoordinator.swift
 //  ExcuseGenerator
 //
-//  Created by Daniel Fernandez Yopla on 09.07.2022.
+//  Created by Daniel Fernandez Yopla on 11.07.2022.
 //
 
 import Combine
 import CoordinatorRouter
 
-final class SubscriptionsCoordinator: BaseCoordinator<RouterResult<Void>> {
+final class PremiumContentCoordinator: BaseCoordinator<RouterResult<Void>> {
     typealias Dependencies = AllDependencies
 
     private let router: Router
@@ -20,18 +20,15 @@ final class SubscriptionsCoordinator: BaseCoordinator<RouterResult<Void>> {
     }
 
     override func start() -> AnyPublisher<CoordinationResult, Never> {
-        let viewModel = SubscriptionsViewModel(iapManager: dependencies.iapManager, iapService: IapService())
-        let viewController = BaseViewController(rootView: SubscriptionsView(viewModel: viewModel))
+        let viewModel = PremiumContentViewModel()
+        let viewController = BaseViewController(rootView: PremiumContentView(viewModel: viewModel))
 
         router.present(viewController, animated: true)
 
         let dismissed = dismissObservable(with: viewController, dismissHandler: router)
             .map { _ in RouterResult<Void>.dismissedByRouter }
 
-        let closeTapped = viewModel.closeTap
-            .map { _ in RouterResult<Void>.dismiss }
-
-        return dismissed.merge(with: closeTapped)
+        return dismissed
             .eraseToAnyPublisher()
     }
 }

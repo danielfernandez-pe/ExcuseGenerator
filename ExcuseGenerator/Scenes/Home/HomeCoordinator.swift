@@ -21,7 +21,7 @@ final class HomeCoordinator: BaseCoordinator<Void> {
     }
 
     override func start() -> AnyPublisher<CoordinationResult, Never> {
-        let viewModel = HomeViewModel(excuseService: ExcuseService())
+        let viewModel = HomeViewModel(iapManager: dependencies.iapManager, excuseService: dependencies.excuseService)
         let viewController = BaseViewController(rootView: HomeView(viewModel: viewModel))
         let navigationController = NavigationController(rootViewController: viewController)
 
@@ -60,6 +60,14 @@ final class HomeCoordinator: BaseCoordinator<Void> {
 //            })
 //            .store(in: cancelBag)
 
+        viewModel.openPremiumContent
+            .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
+                guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
+                return self.showPremiumContent(router: NavigationRouter(navigationController: navigationController))
+            }
+            .sink(receiveValue: { _ in })
+            .store(in: cancelBag)
+
         viewModel.openSubscriptions
             .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
                 guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
@@ -84,6 +92,18 @@ extension HomeCoordinator {
 
     private func showSubscriptions(router: Router) -> AnyPublisher<RouterResult<Void>, Never> {
         coordinate(to: SubscriptionsCoordinator(router: router, dependencies: dependencies))
+            .flatMap { result -> CoordinatingResult<RouterResult<Void>> in
+                guard result != .dismissedByRouter else {
+                    return Just(result).eraseToAnyPublisher()
+                }
+                return router.dismiss(animated: true, returning: result)
+            }
+            .prefix(1)
+            .eraseToAnyPublisher()
+    }
+
+    private func showPremiumContent(router: Router) -> AnyPublisher<RouterResult<Void>, Never> {
+        coordinate(to: PremiumContentCoordinator(router: router, dependencies: dependencies))
             .flatMap { result -> CoordinatingResult<RouterResult<Void>> in
                 guard result != .dismissedByRouter else {
                     return Just(result).eraseToAnyPublisher()
