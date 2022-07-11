@@ -20,7 +20,7 @@ final class SubscriptionsCoordinator: BaseCoordinator<RouterResult<Void>> {
     }
 
     override func start() -> AnyPublisher<CoordinationResult, Never> {
-        let viewModel = SubscriptionsViewModel(iapManager: IapManager())
+        let viewModel = SubscriptionsViewModel(iapManager: IapManager(), iapService: IapService())
         let viewController = BaseViewController(rootView: SubscriptionsView(viewModel: viewModel))
 
         router.present(viewController, animated: true)

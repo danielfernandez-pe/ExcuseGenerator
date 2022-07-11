@@ -8,11 +8,11 @@
 import Foundation
 import Combine
 
-protocol PurchaseServiceType {
+protocol IapServiceType {
     func validateReceipt(receipt: String) -> AnyPublisher<ReceiptValidation, Never>
 }
 
-final class PurchaseService: PurchaseServiceType {
+final class IapService: IapServiceType {
     func validateReceipt(receipt: String) -> AnyPublisher<ReceiptValidation, Never> {
         Just(
             ReceiptValidation(
@@ -21,6 +21,7 @@ final class PurchaseService: PurchaseServiceType {
                 receiptExpired: false
             )
         )
+        .delay(for: 2, scheduler: DispatchQueue.main)
         .eraseToAnyPublisher()
     }
 }

@@ -31,10 +31,12 @@ protocol IapManagerType {
     var transactionResult: AnyPublisher<IAPTransactionResult, Never> { get }
 
     func getProducts()
-    func purchaseProduct(_ product: IapManager.StoreProduct)
+    func buyProduct(_ product: IapProduct)
+    func isPurchased(_ product: IapProduct) -> Bool
     func restorePurchases()
     func getReceipt() -> String?
     func cleanTransactions()
+    func handlePurchasedProduct(product: IapProduct, receiptValidation: ReceiptValidation)
     func getProductPrice(for product: SKProduct) -> String
 }
 
@@ -69,16 +71,15 @@ final class IapManager: NSObject, IapManagerType {
 
     func getProducts() {
         productsRequest?.cancel()
-        productsRequest = SKProductsRequest(productIdentifiers: StoreProduct.availableProductIds)
+        productsRequest = SKProductsRequest(productIdentifiers: IapManager.availableProductIds)
         productsRequest?.delegate = self
         productsRequest?.start()
     }
 
-    func purchaseProduct(_ product: IapManager.StoreProduct) {
-        let id = product.rawValue
-        print("Starting purchase for IAP product with id: \(id)")
+    func buyProduct(_ product: IapProduct) {
+        print("Starting purchase for IAP product with id: \(product.id)")
         guard case .fetched(let products) = fetchedProducts.value,
-              let product = products.first(where: { $0.productIdentifier == id }) else { return }
+              let product = products.first(where: { $0.productIdentifier == product.id }) else { return }
 
         removeUnfinishedTransactionsIfNeeded {
             let payment = SKPayment(product: product)
@@ -112,17 +113,32 @@ final class IapManager: NSObject, IapManagerType {
         return formatter.subscriptionPrice(price: product.price, priceLocale: product.priceLocale) ?? ""
     }
 
+    func cleanTransactions() {
+        guard let transaction = currentPurchasedTransaction else { return }
+        SKPaymentQueue.default().finishTransaction(transaction)
+        currentPurchasedTransaction = nil
+    }
+
+    func isPurchased(_ product: IapProduct) -> Bool {
+        UserDefaultsConfig.iapProductIdentifiers.contains(product.id)
+    }
+
+    func handlePurchasedProduct(product: IapProduct, receiptValidation: ReceiptValidation) {
+        UserDefaultsConfig.iapProductIdentifiers.insert(product.id)
+        guard let storeProduct = StoreProduct(id: product.id) else { return }
+        switch storeProduct {
+        case .consumable:
+            break
+        case .subscription:
+            UserDefaultsConfig.iapUserIsPremium = receiptValidation.receiptValid && !receiptValidation.receiptExpired
+        }
+    }
+
     private func refreshReceipt() {
         guard refreshReceiptRequest == nil else { return }
         refreshReceiptRequest = SKReceiptRefreshRequest()
         refreshReceiptRequest?.delegate = self
         refreshReceiptRequest?.start()
-    }
-
-    func cleanTransactions() {
-        guard let transaction = currentPurchasedTransaction else { return }
-        SKPaymentQueue.default().finishTransaction(transaction)
-        currentPurchasedTransaction = nil
     }
 
     // Apple sandbox bug. I had to finish unfinished transaction before doing a new purchase. This is

@@ -63,6 +63,10 @@
 		4F91029627345C2400B02C03 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91024F27345C2400B02C03 /* Appearance.swift */; };
 		4F91029A27345C2400B02C03 /* ExcuseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91025527345C2400B02C03 /* ExcuseService.swift */; };
 		4FD9F228287C64D900B64EB1 /* CoordinatorRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD9F227287C64D900B64EB1 /* CoordinatorRouter */; };
+		4FD9F22B287C6CA300B64EB1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F22A287C6CA300B64EB1 /* SubscriptionView.swift */; };
+		4FD9F22E287C72CE00B64EB1 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */; };
+		4FD9F232287C771000B64EB1 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F231287C771000B64EB1 /* UserDefault.swift */; };
+		4FD9F234287C771E00B64EB1 /* UserDefaultsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F233287C771E00B64EB1 /* UserDefaultsConfig.swift */; };
 		4FFC2217273461C7006B10CF /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FFC2216273461C7006B10CF /* Rswift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +130,10 @@
 		4F91024F27345C2400B02C03 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		4F91025527345C2400B02C03 /* ExcuseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuseService.swift; sourceTree = "<group>"; };
 		4FD9F226287C637400B64EB1 /* CoordinatorRouter */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CoordinatorRouter; path = ../CoordinatorRouter; sourceTree = "<group>"; };
+		4FD9F22A287C6CA300B64EB1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
+		4FD9F231287C771000B64EB1 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		4FD9F233287C771E00B64EB1 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +152,7 @@
 		4F1F4987287463C5005B7A95 /* Subscriptions */ = {
 			isa = PBXGroup;
 			children = (
+				4FD9F229287C6C9900B64EB1 /* Components */,
 				4F2813DB2879E7210050B889 /* SubscriptionsCoordinator.swift */,
 				4F2813DF2879E7800050B889 /* SubscriptionsViewModel.swift */,
 				4F2813E12879E7880050B889 /* SubscriptionsView.swift */,
@@ -209,6 +218,7 @@
 			children = (
 				4F91023727345C2400B02C03 /* Info.plist */,
 				4F91024627345C2400B02C03 /* Application */,
+				4FD9F22F287C76E900B64EB1 /* PropertyWrappers */,
 				4F9101F827345C2400B02C03 /* Extensions */,
 				4F9101F527345C2400B02C03 /* Helpers */,
 				4F91025027345C2400B02C03 /* Protocols */,
@@ -414,6 +424,40 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		4FD9F229287C6C9900B64EB1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4FD9F22C287C72C300B64EB1 /* Subscription */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4FD9F22C287C72C300B64EB1 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				4FD9F22A287C6CA300B64EB1 /* SubscriptionView.swift */,
+				4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		4FD9F22F287C76E900B64EB1 /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				4FD9F230287C770900B64EB1 /* UserDefaults */,
+			);
+			path = PropertyWrappers;
+			sourceTree = "<group>";
+		};
+		4FD9F230287C770900B64EB1 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				4FD9F231287C771000B64EB1 /* UserDefault.swift */,
+				4FD9F233287C771E00B64EB1 /* UserDefaultsConfig.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		4FFC22102734608A006B10CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +594,8 @@
 				4F2813E02879E7800050B889 /* SubscriptionsViewModel.swift in Sources */,
 				4F91029427345C2400B02C03 /* AppDelegate.swift in Sources */,
 				4F91028427345C2400B02C03 /* ChooseEndingView.swift in Sources */,
+				4FD9F22B287C6CA300B64EB1 /* SubscriptionView.swift in Sources */,
+				4FD9F234287C771E00B64EB1 /* UserDefaultsConfig.swift in Sources */,
 				4F91028627345C2400B02C03 /* ChooseEndingViewController.swift in Sources */,
 				4F91029027345C2400B02C03 /* AppDependency.swift in Sources */,
 				4F77DBDD287C347B009A5D4A /* ReceiptValidation.swift in Sources */,
@@ -575,6 +621,7 @@
 				4F91026327345C2400B02C03 /* LoadingViewController.swift in Sources */,
 				4F91025F27345C2400B02C03 /* HomeCoordinator.swift in Sources */,
 				4F91027E27345C2400B02C03 /* ChooseState.swift in Sources */,
+				4FD9F22E287C72CE00B64EB1 /* SubscriptionViewModel.swift in Sources */,
 				4F77DBD7287C3384009A5D4A /* IapService.swift in Sources */,
 				4F2813E62879F0C10050B889 /* IapManager.swift in Sources */,
 				4F91026027345C2400B02C03 /* LoadingCoordinator.swift in Sources */,
@@ -593,6 +640,7 @@
 				4F91027927345C2400B02C03 /* ExcuseResultCoordinator.swift in Sources */,
 				4F91028A27345C2400B02C03 /* ScaleButtonStyle.swift in Sources */,
 				4F91028127345C2400B02C03 /* ChooseIntroView.swift in Sources */,
+				4FD9F232287C771000B64EB1 /* UserDefault.swift in Sources */,
 				4F91029627345C2400B02C03 /* Appearance.swift in Sources */,
 				4F91028927345C2400B02C03 /* HighlightButtonStyle.swift in Sources */,
 				4F91026127345C2400B02C03 /* LoadingViewModel.swift in Sources */,

@@ -15,10 +15,8 @@ struct SubscriptionsView: View {
         VStack {
             ScrollView {
                 VStack(spacing: 16) {
-                    ForEach(viewModel.products) { product in
-                        SubscriptionView(product: product, isBuying: true) {
-                            print("buy!")
-                        }
+                    ForEach(viewModel.productViewModels) { viewModel in
+                        SubscriptionView(viewModel: viewModel)
                     }
                 }
                 .padding()
@@ -39,36 +37,30 @@ struct SubscriptionsView: View {
     }
 }
 
-struct SubscriptionView: View {
-    let product: IapProduct
-    let isBuying: Bool
-    let buyAction: () -> Void
-
-    var body: some View {
-        VStack {
-            HStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(product.name)
-
-                    Text(product.price)
-                }
-
-                Spacer()
-
-                if isBuying {
-                    ProgressView()
-                } else {
-                    Button("Buy", action: buyAction)
-                }
-            }
-
-            Divider()
-        }
+struct SubscriptionsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SubscriptionsView(
+            viewModel: .init(iapManager: IapManager(), iapService: IapService())
+        )
     }
 }
 
-struct SubscriptionsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SubscriptionsView(viewModel: .init(iapManager: IapManager()))
+extension View {
+    func debugRedraw() -> some View {
+        background(Color.debug)
+    }
+}
+
+extension ShapeStyle where Self == Color {
+    static var debug: Color {
+        #if DEVEL
+        Color(
+            red: .random(in: 0...1),
+            green: .random(in: 0...1),
+            blue: .random(in: 0...1)
+        ).opacity(0.7)
+        #else
+        Color.clear
+        #endif
     }
 }
