@@ -68,14 +68,25 @@ final class HomeCoordinator: BaseCoordinator<Void> {
             .sink(receiveValue: { _ in })
             .store(in: cancelBag)
 
-        viewModel.openSubscriptions
-            .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
-                guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
-                let modalRouter = ModalNavigationRouter(parentViewController: viewController, presentationStyle: .fullScreen)
-                return self.showSubscriptions(router: modalRouter)
-            }
-            .sink(receiveValue: { _ in })
-            .store(in: cancelBag)
+        if #available(iOS 15, *) {
+            viewModel.openSubscriptions
+                .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
+                    guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
+                    let modalRouter = ModalNavigationRouter(parentViewController: viewController, presentationStyle: .fullScreen)
+                    return self.showSubscriptionsSk2(router: modalRouter)
+                }
+                .sink(receiveValue: { _ in })
+                .store(in: cancelBag)
+        } else {
+            viewModel.openSubscriptions
+                .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
+                    guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
+                    let modalRouter = ModalNavigationRouter(parentViewController: viewController, presentationStyle: .fullScreen)
+                    return self.showSubscriptions(router: modalRouter)
+                }
+                .sink(receiveValue: { _ in })
+                .store(in: cancelBag)
+        }
 
         return Empty<CoordinationResult, Never>(completeImmediately: false).eraseToAnyPublisher()
     }
@@ -92,6 +103,19 @@ extension HomeCoordinator {
 
     private func showSubscriptions(router: Router) -> AnyPublisher<RouterResult<Void>, Never> {
         coordinate(to: SubscriptionsCoordinator(router: router, dependencies: dependencies))
+            .flatMap { result -> CoordinatingResult<RouterResult<Void>> in
+                guard result != .dismissedByRouter else {
+                    return Just(result).eraseToAnyPublisher()
+                }
+                return router.dismiss(animated: true, returning: result)
+            }
+            .prefix(1)
+            .eraseToAnyPublisher()
+    }
+
+    @available(iOS 15, *)
+    private func showSubscriptionsSk2(router: Router) -> AnyPublisher<RouterResult<Void>, Never> {
+        coordinate(to: SubscriptionsSk2Coordinator(router: router, dependencies: dependencies))
             .flatMap { result -> CoordinatingResult<RouterResult<Void>> in
                 guard result != .dismissedByRouter else {
                     return Just(result).eraseToAnyPublisher()

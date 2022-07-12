@@ -20,6 +20,12 @@
 		4F8338E1287CC83800AC34CC /* PremiumContentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338E0287CC83800AC34CC /* PremiumContentCoordinator.swift */; };
 		4F8338E3287CC84000AC34CC /* PremiumContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338E2287CC84000AC34CC /* PremiumContentViewModel.swift */; };
 		4F8338E5287CC84600AC34CC /* PremiumContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338E4287CC84600AC34CC /* PremiumContentView.swift */; };
+		4F8338E7287D63F200AC34CC /* IapManagerStoreKit2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338E6287D63F200AC34CC /* IapManagerStoreKit2.swift */; };
+		4F8338EA287D673E00AC34CC /* SubscriptionsSk2Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338E9287D673E00AC34CC /* SubscriptionsSk2Coordinator.swift */; };
+		4F8338EC287D674500AC34CC /* SubscriptionsSk2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338EB287D674500AC34CC /* SubscriptionsSk2ViewModel.swift */; };
+		4F8338EE287D674D00AC34CC /* SubscriptionsSk2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338ED287D674D00AC34CC /* SubscriptionsSk2View.swift */; };
+		4F8338F2287D67C100AC34CC /* SubscriptionSk2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338F1287D67C100AC34CC /* SubscriptionSk2View.swift */; };
+		4F8338F4287D67C800AC34CC /* SubscriptionSk2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8338F3287D67C800AC34CC /* SubscriptionSk2ViewModel.swift */; };
 		4F91025727345C2400B02C03 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101F727345C2400B02C03 /* NavigationController.swift */; };
 		4F91025827345C2400B02C03 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101FA27345C2400B02C03 /* UIBarButtonItem+.swift */; };
 		4F91025927345C2400B02C03 /* Shape+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9101FC27345C2400B02C03 /* Shape+.swift */; };
@@ -87,6 +93,12 @@
 		4F8338E0287CC83800AC34CC /* PremiumContentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumContentCoordinator.swift; sourceTree = "<group>"; };
 		4F8338E2287CC84000AC34CC /* PremiumContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumContentViewModel.swift; sourceTree = "<group>"; };
 		4F8338E4287CC84600AC34CC /* PremiumContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumContentView.swift; sourceTree = "<group>"; };
+		4F8338E6287D63F200AC34CC /* IapManagerStoreKit2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IapManagerStoreKit2.swift; sourceTree = "<group>"; };
+		4F8338E9287D673E00AC34CC /* SubscriptionsSk2Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsSk2Coordinator.swift; sourceTree = "<group>"; };
+		4F8338EB287D674500AC34CC /* SubscriptionsSk2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsSk2ViewModel.swift; sourceTree = "<group>"; };
+		4F8338ED287D674D00AC34CC /* SubscriptionsSk2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsSk2View.swift; sourceTree = "<group>"; };
+		4F8338F1287D67C100AC34CC /* SubscriptionSk2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionSk2View.swift; sourceTree = "<group>"; };
+		4F8338F3287D67C800AC34CC /* SubscriptionSk2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionSk2ViewModel.swift; sourceTree = "<group>"; };
 		4F9101E427345BC700B02C03 /* ExcuseGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcuseGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9101F727345C2400B02C03 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		4F9101FA27345C2400B02C03 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
@@ -179,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				4F2813E52879F0C10050B889 /* IapManager.swift */,
+				4F8338E6287D63F200AC34CC /* IapManagerStoreKit2.swift */,
 				4F77DBD2287C30C7009A5D4A /* StoreProduct.swift */,
 				4F77DBD4287C3280009A5D4A /* NumberFormatter+.swift */,
 				4FD9F235287C954100B64EB1 /* Configuration.storekit */,
@@ -211,6 +224,34 @@
 				4F8338E4287CC84600AC34CC /* PremiumContentView.swift */,
 			);
 			path = PremiumContent;
+			sourceTree = "<group>";
+		};
+		4F8338E8287D672A00AC34CC /* SubscriptionsSk2 */ = {
+			isa = PBXGroup;
+			children = (
+				4F8338EF287D677C00AC34CC /* Components */,
+				4F8338E9287D673E00AC34CC /* SubscriptionsSk2Coordinator.swift */,
+				4F8338EB287D674500AC34CC /* SubscriptionsSk2ViewModel.swift */,
+				4F8338ED287D674D00AC34CC /* SubscriptionsSk2View.swift */,
+			);
+			path = SubscriptionsSk2;
+			sourceTree = "<group>";
+		};
+		4F8338EF287D677C00AC34CC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4F8338F0287D67B800AC34CC /* Subscription */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4F8338F0287D67B800AC34CC /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				4F8338F1287D67C100AC34CC /* SubscriptionSk2View.swift */,
+				4F8338F3287D67C800AC34CC /* SubscriptionSk2ViewModel.swift */,
+			);
+			path = Subscription;
 			sourceTree = "<group>";
 		};
 		4F9101DB27345BC700B02C03 = {
@@ -288,8 +329,9 @@
 		4F9101FF27345C2400B02C03 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4F8338DF287CC82400AC34CC /* PremiumContent */,
+				4F8338E8287D672A00AC34CC /* SubscriptionsSk2 */,
 				4F1F4987287463C5005B7A95 /* Subscriptions */,
+				4F8338DF287CC82400AC34CC /* PremiumContent */,
 				4F91020027345C2400B02C03 /* Home */,
 				4F91020527345C2400B02C03 /* Loading */,
 				4F91022127345C2400B02C03 /* ExcuseResult */,
@@ -651,10 +693,14 @@
 				4F2813E22879E7880050B889 /* SubscriptionsView.swift in Sources */,
 				4F91025927345C2400B02C03 /* Shape+.swift in Sources */,
 				4F91029A27345C2400B02C03 /* ExcuseService.swift in Sources */,
+				4F8338EC287D674500AC34CC /* SubscriptionsSk2ViewModel.swift in Sources */,
+				4F8338EE287D674D00AC34CC /* SubscriptionsSk2View.swift in Sources */,
+				4F8338E7287D63F200AC34CC /* IapManagerStoreKit2.swift in Sources */,
 				4F91027F27345C2400B02C03 /* ChooseIntroCoordinator.swift in Sources */,
 				4F91028B27345C2400B02C03 /* NoneButtonStyle.swift in Sources */,
 				4F91026227345C2400B02C03 /* LoadingView.swift in Sources */,
 				4F91027A27345C2400B02C03 /* ChooseMediumViewModel.swift in Sources */,
+				4F8338F2287D67C100AC34CC /* SubscriptionSk2View.swift in Sources */,
 				4F91028827345C2400B02C03 /* HighlightedButton.swift in Sources */,
 				4F91027627345C2400B02C03 /* ExcuseResultViewModel.swift in Sources */,
 				4F2813DC2879E7210050B889 /* SubscriptionsCoordinator.swift in Sources */,
@@ -662,7 +708,9 @@
 				4F91027927345C2400B02C03 /* ExcuseResultCoordinator.swift in Sources */,
 				4F91028A27345C2400B02C03 /* ScaleButtonStyle.swift in Sources */,
 				4F91028127345C2400B02C03 /* ChooseIntroView.swift in Sources */,
+				4F8338F4287D67C800AC34CC /* SubscriptionSk2ViewModel.swift in Sources */,
 				4FD9F232287C771000B64EB1 /* UserDefault.swift in Sources */,
+				4F8338EA287D673E00AC34CC /* SubscriptionsSk2Coordinator.swift in Sources */,
 				4F91029627345C2400B02C03 /* Appearance.swift in Sources */,
 				4F91028927345C2400B02C03 /* HighlightButtonStyle.swift in Sources */,
 				4F91026127345C2400B02C03 /* LoadingViewModel.swift in Sources */,
