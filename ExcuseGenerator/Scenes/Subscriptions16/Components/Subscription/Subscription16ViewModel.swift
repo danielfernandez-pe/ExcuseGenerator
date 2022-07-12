@@ -1,5 +1,5 @@
 //
-//  SubscriptionSk2ViewModel.swift
+//  Subscription16ViewModel.swift
 //  ExcuseGenerator
 //
 //  Created by Daniel Fernandez Yopla on 12.07.2022.
@@ -10,8 +10,8 @@ import SwiftUI
 import Combine
 import CoordinatorRouter
 
-@available(iOS 15, *)
-class SubscriptionSk2ViewModel: ObservableObject, Identifiable {
+@available(iOS 16, *)
+class Subscription16ViewModel: ObservableObject, Identifiable {
     @Published var isBuying: Bool = false
     @Published var isPurchased: Bool = false
 
@@ -27,6 +27,7 @@ class SubscriptionSk2ViewModel: ObservableObject, Identifiable {
         setupBindings()
     }
 
+    @MainActor
     func checkIfProductIsPurchased() async {
         isPurchased = await iapManager.isPurchased(product)
     }
@@ -48,9 +49,9 @@ class SubscriptionSk2ViewModel: ObservableObject, Identifiable {
     }
 }
 
-@available(iOS 15, *)
-extension SubscriptionSk2ViewModel {
-    static func == (lhs: SubscriptionSk2ViewModel, rhs: SubscriptionSk2ViewModel) -> Bool {
+@available(iOS 16, *)
+extension Subscription16ViewModel {
+    static func == (lhs: Subscription16ViewModel, rhs: Subscription16ViewModel) -> Bool {
         lhs.product.id == rhs.product.id
     }
 }

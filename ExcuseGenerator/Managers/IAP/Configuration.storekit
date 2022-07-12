@@ -26,7 +26,7 @@
     }
   ],
   "settings" : {
-    "_askToBuyEnabled" : true
+    "_askToBuyEnabled" : false
   },
   "subscriptionGroups" : [
     {
@@ -41,7 +41,16 @@
 
           ],
           "codeOffers" : [
-
+            {
+              "eligibility" : [
+                "new"
+              ],
+              "internalID" : "866E4F1C",
+              "isStackable" : false,
+              "paymentMode" : "free",
+              "referenceName" : "PEPE",
+              "subscriptionPeriod" : "P1M"
+            }
           ],
           "displayPrice" : "9.99",
           "familyShareable" : false,
@@ -100,7 +109,7 @@
     }
   ],
   "version" : {
-    "major" : 1,
-    "minor" : 2
+    "major" : 2,
+    "minor" : 0
   }
 }

@@ -19,6 +19,8 @@ struct SubscriptionsSk2View: View {
                     ForEach(viewModel.productViewModels) { viewModel in
                         SubscriptionSk2View(viewModel: viewModel)
                     }
+
+                    Button("Redeem code", action: viewModel.redeemCode)
                 }
                 .padding()
             }

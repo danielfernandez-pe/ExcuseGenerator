@@ -71,6 +71,11 @@
 		4F91029527345C2400B02C03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91024E27345C2400B02C03 /* SceneDelegate.swift */; };
 		4F91029627345C2400B02C03 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91024F27345C2400B02C03 /* Appearance.swift */; };
 		4F91029A27345C2400B02C03 /* ExcuseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F91025527345C2400B02C03 /* ExcuseService.swift */; };
+		4FAF0F54287DDD5A0064F7AC /* Subscriptions16Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F53287DDD5A0064F7AC /* Subscriptions16Coordinator.swift */; };
+		4FAF0F56287DDD7F0064F7AC /* Subscriptions16ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F55287DDD7F0064F7AC /* Subscriptions16ViewModel.swift */; };
+		4FAF0F58287DDD870064F7AC /* Susbcriptions16View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F57287DDD870064F7AC /* Susbcriptions16View.swift */; };
+		4FAF0F5B287DDD980064F7AC /* Subscription16View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F5A287DDD980064F7AC /* Subscription16View.swift */; };
+		4FAF0F5E287DDDAA0064F7AC /* Subscription16ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F5D287DDDAA0064F7AC /* Subscription16ViewModel.swift */; };
 		4FD9F228287C64D900B64EB1 /* CoordinatorRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD9F227287C64D900B64EB1 /* CoordinatorRouter */; };
 		4FD9F22B287C6CA300B64EB1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F22A287C6CA300B64EB1 /* SubscriptionView.swift */; };
 		4FD9F22E287C72CE00B64EB1 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */; };
@@ -147,6 +152,11 @@
 		4F91024E27345C2400B02C03 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4F91024F27345C2400B02C03 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		4F91025527345C2400B02C03 /* ExcuseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcuseService.swift; sourceTree = "<group>"; };
+		4FAF0F53287DDD5A0064F7AC /* Subscriptions16Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriptions16Coordinator.swift; sourceTree = "<group>"; };
+		4FAF0F55287DDD7F0064F7AC /* Subscriptions16ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriptions16ViewModel.swift; sourceTree = "<group>"; };
+		4FAF0F57287DDD870064F7AC /* Susbcriptions16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Susbcriptions16View.swift; sourceTree = "<group>"; };
+		4FAF0F5A287DDD980064F7AC /* Subscription16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription16View.swift; sourceTree = "<group>"; };
+		4FAF0F5D287DDDAA0064F7AC /* Subscription16ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription16ViewModel.swift; sourceTree = "<group>"; };
 		4FD9F226287C637400B64EB1 /* CoordinatorRouter */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CoordinatorRouter; path = ../CoordinatorRouter; sourceTree = "<group>"; };
 		4FD9F22A287C6CA300B64EB1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
@@ -226,7 +236,7 @@
 			path = PremiumContent;
 			sourceTree = "<group>";
 		};
-		4F8338E8287D672A00AC34CC /* SubscriptionsSk2 */ = {
+		4F8338E8287D672A00AC34CC /* Subscriptions15 */ = {
 			isa = PBXGroup;
 			children = (
 				4F8338EF287D677C00AC34CC /* Components */,
@@ -234,7 +244,7 @@
 				4F8338EB287D674500AC34CC /* SubscriptionsSk2ViewModel.swift */,
 				4F8338ED287D674D00AC34CC /* SubscriptionsSk2View.swift */,
 			);
-			path = SubscriptionsSk2;
+			path = Subscriptions15;
 			sourceTree = "<group>";
 		};
 		4F8338EF287D677C00AC34CC /* Components */ = {
@@ -329,7 +339,8 @@
 		4F9101FF27345C2400B02C03 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4F8338E8287D672A00AC34CC /* SubscriptionsSk2 */,
+				4FAF0F52287DDD400064F7AC /* Subscriptions16 */,
+				4F8338E8287D672A00AC34CC /* Subscriptions15 */,
 				4F1F4987287463C5005B7A95 /* Subscriptions */,
 				4F8338DF287CC82400AC34CC /* PremiumContent */,
 				4F91020027345C2400B02C03 /* Home */,
@@ -483,6 +494,34 @@
 				4F77DBD6287C3384009A5D4A /* IapService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		4FAF0F52287DDD400064F7AC /* Subscriptions16 */ = {
+			isa = PBXGroup;
+			children = (
+				4FAF0F59287DDD8B0064F7AC /* Components */,
+				4FAF0F53287DDD5A0064F7AC /* Subscriptions16Coordinator.swift */,
+				4FAF0F55287DDD7F0064F7AC /* Subscriptions16ViewModel.swift */,
+				4FAF0F57287DDD870064F7AC /* Susbcriptions16View.swift */,
+			);
+			path = Subscriptions16;
+			sourceTree = "<group>";
+		};
+		4FAF0F59287DDD8B0064F7AC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4FAF0F5C287DDD9E0064F7AC /* Subscription */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4FAF0F5C287DDD9E0064F7AC /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				4FAF0F5A287DDD980064F7AC /* Subscription16View.swift */,
+				4FAF0F5D287DDDAA0064F7AC /* Subscription16ViewModel.swift */,
+			);
+			path = Subscription;
 			sourceTree = "<group>";
 		};
 		4FD9F229287C6C9900B64EB1 /* Components */ = {
@@ -652,6 +691,7 @@
 			files = (
 				4F8338E1287CC83800AC34CC /* PremiumContentCoordinator.swift in Sources */,
 				4F91025B27345C2400B02C03 /* Font+.swift in Sources */,
+				4FAF0F5B287DDD980064F7AC /* Subscription16View.swift in Sources */,
 				4F91028C27345C2400B02C03 /* ColoredText.swift in Sources */,
 				4F2813E02879E7800050B889 /* SubscriptionsViewModel.swift in Sources */,
 				4F91029427345C2400B02C03 /* AppDelegate.swift in Sources */,
@@ -665,6 +705,7 @@
 				4F91028D27345C2400B02C03 /* FrameSizeModifier.swift in Sources */,
 				4F91027B27345C2400B02C03 /* ChooseMediumCoordinator.swift in Sources */,
 				4F91025C27345C2400B02C03 /* HomeViewModel.swift in Sources */,
+				4FAF0F5E287DDDAA0064F7AC /* Subscription16ViewModel.swift in Sources */,
 				4F91027D27345C2400B02C03 /* ChooseMediumView.swift in Sources */,
 				4F91025727345C2400B02C03 /* NavigationController.swift in Sources */,
 				4F91025827345C2400B02C03 /* UIBarButtonItem+.swift in Sources */,
@@ -689,6 +730,7 @@
 				4F77DBD7287C3384009A5D4A /* IapService.swift in Sources */,
 				4F2813E62879F0C10050B889 /* IapManager.swift in Sources */,
 				4F91026027345C2400B02C03 /* LoadingCoordinator.swift in Sources */,
+				4FAF0F58287DDD870064F7AC /* Susbcriptions16View.swift in Sources */,
 				4F91025A27345C2400B02C03 /* View+.swift in Sources */,
 				4F2813E22879E7880050B889 /* SubscriptionsView.swift in Sources */,
 				4F91025927345C2400B02C03 /* Shape+.swift in Sources */,
@@ -701,6 +743,7 @@
 				4F91026227345C2400B02C03 /* LoadingView.swift in Sources */,
 				4F91027A27345C2400B02C03 /* ChooseMediumViewModel.swift in Sources */,
 				4F8338F2287D67C100AC34CC /* SubscriptionSk2View.swift in Sources */,
+				4FAF0F54287DDD5A0064F7AC /* Subscriptions16Coordinator.swift in Sources */,
 				4F91028827345C2400B02C03 /* HighlightedButton.swift in Sources */,
 				4F91027627345C2400B02C03 /* ExcuseResultViewModel.swift in Sources */,
 				4F2813DC2879E7210050B889 /* SubscriptionsCoordinator.swift in Sources */,
@@ -713,6 +756,7 @@
 				4F8338EA287D673E00AC34CC /* SubscriptionsSk2Coordinator.swift in Sources */,
 				4F91029627345C2400B02C03 /* Appearance.swift in Sources */,
 				4F91028927345C2400B02C03 /* HighlightButtonStyle.swift in Sources */,
+				4FAF0F56287DDD7F0064F7AC /* Subscriptions16ViewModel.swift in Sources */,
 				4F91026127345C2400B02C03 /* LoadingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

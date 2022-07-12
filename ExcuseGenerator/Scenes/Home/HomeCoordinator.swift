@@ -68,7 +68,16 @@ final class HomeCoordinator: BaseCoordinator<Void> {
             .sink(receiveValue: { _ in })
             .store(in: cancelBag)
 
-        if #available(iOS 15, *) {
+        if #available(iOS 16, *) {
+            viewModel.openSubscriptions
+                .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
+                    guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
+                    let modalRouter = ModalNavigationRouter(parentViewController: viewController, presentationStyle: .fullScreen)
+                    return self.showSubscriptions16(router: modalRouter)
+                }
+                .sink(receiveValue: { _ in })
+                .store(in: cancelBag)
+        } else if #available(iOS 15, *) {
             viewModel.openSubscriptions
                 .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
                     guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
@@ -116,6 +125,19 @@ extension HomeCoordinator {
     @available(iOS 15, *)
     private func showSubscriptionsSk2(router: Router) -> AnyPublisher<RouterResult<Void>, Never> {
         coordinate(to: SubscriptionsSk2Coordinator(router: router, dependencies: dependencies))
+            .flatMap { result -> CoordinatingResult<RouterResult<Void>> in
+                guard result != .dismissedByRouter else {
+                    return Just(result).eraseToAnyPublisher()
+                }
+                return router.dismiss(animated: true, returning: result)
+            }
+            .prefix(1)
+            .eraseToAnyPublisher()
+    }
+
+    @available(iOS 16, *)
+    private func showSubscriptions16(router: Router) -> AnyPublisher<RouterResult<Void>, Never> {
+        coordinate(to: Subscriptions16Coordinator(router: router, dependencies: dependencies))
             .flatMap { result -> CoordinatingResult<RouterResult<Void>> in
                 guard result != .dismissedByRouter else {
                     return Just(result).eraseToAnyPublisher()
