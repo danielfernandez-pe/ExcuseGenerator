@@ -15,7 +15,7 @@ final class HomeViewModel: ObservableObject {
     let removeSubscriptions = PassthroughSubject<Void, Never>()
     let openPremiumContent = PassthroughSubject<Void, Never>()
 
-    private let iapManager: IapManagerType
+    private let iapManagerUserPremium: IapManagerUserPremium
     private let excuseService: ExcuseServiceType
     private let cancelBag: CancelBag = .init()
 
@@ -33,8 +33,8 @@ final class HomeViewModel: ObservableObject {
 
     // MARK: - Initialization
 
-    init(iapManager: IapManagerType, excuseService: ExcuseServiceType) {
-        self.iapManager = iapManager
+    init(iapManagerUserPremium: IapManagerUserPremium, excuseService: ExcuseServiceType) {
+        self.iapManagerUserPremium = iapManagerUserPremium
         self.excuseService = excuseService
         setupActions()
     }
@@ -44,10 +44,12 @@ final class HomeViewModel: ObservableObject {
             .sink { _ in
                 UserDefaultsConfig.iapProductIdentifiers = []
                 UserDefaultsConfig.iapUserIsPremium = false
+                print("userIsPremium is \(UserDefaultsConfig.iapUserIsPremium)")
             }
             .store(in: cancelBag)
 
-        iapManager.isUserPremium
+        iapManagerUserPremium.isUserPremium
+            .print("home")
             .assign(to: &$isUserPremium)
 //        giveExcuseTapped = bindings.giveExcuseTap
 //            .map { dependency.excuseService.getRandomExcuse() }

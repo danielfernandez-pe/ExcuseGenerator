@@ -22,9 +22,8 @@ enum IAPPurchaseErrorSk2: Error {
 }
 
 @available(iOS 15, *)
-protocol IapManagerTypeSk2 {
+protocol IapManagerTypeSk2: IapManagerUserPremium {
     var canMakePayments: Bool { get }
-    var isUserPremium: AnyPublisher<Bool, Never> { get }
 
     func getProducts() async -> [Product]
     func buyProduct(_ product: Product) async throws
@@ -39,13 +38,16 @@ final class IapManagerStoreKit2: IapManagerTypeSk2 {
     }
 
     var isUserPremium: AnyPublisher<Bool, Never> {
-        isUserPremiumSubject.eraseToAnyPublisher()
+        isUserPremiumSubject
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 
     private let isUserPremiumSubject = CurrentValueSubject<Bool, Never>(false)
     private var updates: Task<Void, Never>?
 
     init() {
+        print("isUserPremium is \(UserDefaultsConfig.iapUserIsPremium)")
         isUserPremiumSubject.send(UserDefaultsConfig.iapUserIsPremium)
         updates = listenForTransactions()
 
@@ -91,7 +93,9 @@ final class IapManagerStoreKit2: IapManagerTypeSk2 {
     }
 
     func isPurchased(_ product: Product) async -> Bool {
-        guard let result = await Transaction.latest(for: product.id) else { return false }
+        guard let result = await Transaction.latest(for: product.id) else {
+            return false
+        }
         do {
             let transaction = try checkVerified(result)
             return transaction.revocationDate == nil && !transaction.isUpgraded

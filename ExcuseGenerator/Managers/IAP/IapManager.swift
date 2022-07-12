@@ -25,9 +25,8 @@ enum IAPPurchaseError: Error {
     case generic
 }
 
-protocol IapManagerType {
+protocol IapManagerType: IapManagerUserPremium {
     var canMakePayments: Bool { get }
-    var isUserPremium: AnyPublisher<Bool, Never> { get }
     var availableProducts: AnyPublisher<IAPPurchaseFetchResult, Never> { get }
     var transactionResult: AnyPublisher<IAPTransactionResult, Never> { get }
 

@@ -21,7 +21,7 @@ final class SubscriptionsSk2Coordinator: BaseCoordinator<RouterResult<Void>> {
     }
 
     override func start() -> AnyPublisher<CoordinationResult, Never> {
-        let viewModel = SubscriptionsSk2ViewModel(iapManager: IapManagerStoreKit2())
+        let viewModel = SubscriptionsSk2ViewModel(iapManager: AppDependencySk2.iapManagerSk2)
         let viewController = BaseViewController(rootView: SubscriptionsSk2View(viewModel: viewModel))
 
         router.present(viewController, animated: true)

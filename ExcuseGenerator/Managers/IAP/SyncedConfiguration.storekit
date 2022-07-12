@@ -1,0 +1,108 @@
+{
+  "identifier" : "6CCFC81F",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "1633910489",
+      "localizations" : [
+        {
+          "description" : "Need an excuse for your work?",
+          "displayName" : "Boss special excuse",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Necesitas una excusa en la oficina?",
+          "displayName" : "Excusa especial para jefes",
+          "locale" : "es_MX"
+        }
+      ],
+      "productID" : "excusator.consumable.boss",
+      "referenceName" : "Boss special excuse",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "1633825159",
+    "_developerTeamID" : "4RGG6YXDS6",
+    "_lastSynchronizedDate" : 679353424.11755204
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "20984826",
+      "localizations" : [
+
+      ],
+      "name" : "Basic",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.49",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "1633910744",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Suscripción mensual para excusas premium",
+              "displayName" : "Suscripción mensual",
+              "locale" : "es_MX"
+            },
+            {
+              "description" : "Monthly subscription to get premium excuses",
+              "displayName" : "Monthly subscription",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "excusator.subscriptions.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly premium excuses",
+          "subscriptionGroupID" : "20984826",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "5.49",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "1633911138",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Yearly subscription to get premium excuses",
+              "displayName" : "Yearly subscription",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "Suscripción anual para excusas premium",
+              "displayName" : "Suscripción anual",
+              "locale" : "es_MX"
+            }
+          ],
+          "productID" : "excusator.subscriptions.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly premium excuses",
+          "subscriptionGroupID" : "20984826",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

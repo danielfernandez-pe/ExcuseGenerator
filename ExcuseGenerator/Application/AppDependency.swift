@@ -7,9 +7,15 @@
 
 import Foundation
 
+struct AppDependencySk2 {
+    @available(iOS 15, *)
+    static let iapManagerSk2: IapManagerTypeSk2 = IapManagerStoreKit2()
+}
+
 typealias AllDependencies = HasDummyManager &
                             HasExcuseService &
-HasIapManager
+                            HasIapManager &
+                            HasIapManagerUserPremium
 
 protocol HasDummyManager {}
 
@@ -21,12 +27,23 @@ protocol HasIapManager {
     var iapManager: IapManagerType { get }
 }
 
+protocol HasIapManagerUserPremium {
+    var iapManagerUserPremium: IapManagerUserPremium { get }
+}
+
 struct AppDependency: AllDependencies {
     let excuseService: ExcuseServiceType
     let iapManager: IapManagerType
+    let iapManagerUserPremium: IapManagerUserPremium
 
     init() {
         excuseService = ExcuseService()
         iapManager = IapManager()
+
+        if #available(iOS 15, *) {
+            iapManagerUserPremium = AppDependencySk2.iapManagerSk2
+        } else {
+            iapManagerUserPremium = iapManager
+        }
     }
 }

@@ -21,7 +21,7 @@ final class HomeCoordinator: BaseCoordinator<Void> {
     }
 
     override func start() -> AnyPublisher<CoordinationResult, Never> {
-        let viewModel = HomeViewModel(iapManager: dependencies.iapManager, excuseService: dependencies.excuseService)
+        let viewModel = HomeViewModel(iapManagerUserPremium: dependencies.iapManagerUserPremium, excuseService: dependencies.excuseService)
         let viewController = BaseViewController(rootView: HomeView(viewModel: viewModel))
         let navigationController = NavigationController(rootViewController: viewController)
 

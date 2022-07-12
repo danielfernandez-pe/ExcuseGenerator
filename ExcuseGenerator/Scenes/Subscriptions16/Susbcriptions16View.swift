@@ -53,6 +53,7 @@ struct Susbcriptions16View: View {
                 break
             }
         }
+//        .refundRequestSheet(for: <#T##UInt64#>, isPresented: <#T##Binding<Bool>#>)
         .onAppear {
             if self.shouldRequestReview() {
                 requestReview()
@@ -61,7 +62,7 @@ struct Susbcriptions16View: View {
     }
 
     private func shouldRequestReview() -> Bool {
-        true
+        false
     }
 }
 

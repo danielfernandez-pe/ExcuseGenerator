@@ -76,6 +76,7 @@
 		4FAF0F58287DDD870064F7AC /* Susbcriptions16View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F57287DDD870064F7AC /* Susbcriptions16View.swift */; };
 		4FAF0F5B287DDD980064F7AC /* Subscription16View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F5A287DDD980064F7AC /* Subscription16View.swift */; };
 		4FAF0F5E287DDDAA0064F7AC /* Subscription16ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F5D287DDDAA0064F7AC /* Subscription16ViewModel.swift */; };
+		4FAF0F60287E10880064F7AC /* IapManager+UserPremium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F5F287E10880064F7AC /* IapManager+UserPremium.swift */; };
 		4FD9F228287C64D900B64EB1 /* CoordinatorRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD9F227287C64D900B64EB1 /* CoordinatorRouter */; };
 		4FD9F22B287C6CA300B64EB1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F22A287C6CA300B64EB1 /* SubscriptionView.swift */; };
 		4FD9F22E287C72CE00B64EB1 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */; };
@@ -157,6 +158,8 @@
 		4FAF0F57287DDD870064F7AC /* Susbcriptions16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Susbcriptions16View.swift; sourceTree = "<group>"; };
 		4FAF0F5A287DDD980064F7AC /* Subscription16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription16View.swift; sourceTree = "<group>"; };
 		4FAF0F5D287DDDAA0064F7AC /* Subscription16ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription16ViewModel.swift; sourceTree = "<group>"; };
+		4FAF0F5F287E10880064F7AC /* IapManager+UserPremium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IapManager+UserPremium.swift"; sourceTree = "<group>"; };
+		4FAF0F61287E1C3B0064F7AC /* SyncedConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = SyncedConfiguration.storekit; sourceTree = "<group>"; };
 		4FD9F226287C637400B64EB1 /* CoordinatorRouter */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CoordinatorRouter; path = ../CoordinatorRouter; sourceTree = "<group>"; };
 		4FD9F22A287C6CA300B64EB1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
@@ -200,11 +203,13 @@
 		4F77DBD1287C3097009A5D4A /* IAP */ = {
 			isa = PBXGroup;
 			children = (
+				4FAF0F5F287E10880064F7AC /* IapManager+UserPremium.swift */,
 				4F2813E52879F0C10050B889 /* IapManager.swift */,
 				4F8338E6287D63F200AC34CC /* IapManagerStoreKit2.swift */,
 				4F77DBD2287C30C7009A5D4A /* StoreProduct.swift */,
 				4F77DBD4287C3280009A5D4A /* NumberFormatter+.swift */,
 				4FD9F235287C954100B64EB1 /* Configuration.storekit */,
+				4FAF0F61287E1C3B0064F7AC /* SyncedConfiguration.storekit */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -734,6 +739,7 @@
 				4F91025A27345C2400B02C03 /* View+.swift in Sources */,
 				4F2813E22879E7880050B889 /* SubscriptionsView.swift in Sources */,
 				4F91025927345C2400B02C03 /* Shape+.swift in Sources */,
+				4FAF0F60287E10880064F7AC /* IapManager+UserPremium.swift in Sources */,
 				4F91029A27345C2400B02C03 /* ExcuseService.swift in Sources */,
 				4F8338EC287D674500AC34CC /* SubscriptionsSk2ViewModel.swift in Sources */,
 				4F8338EE287D674D00AC34CC /* SubscriptionsSk2View.swift in Sources */,

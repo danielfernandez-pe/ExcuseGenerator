@@ -39,6 +39,7 @@ class Subscription16ViewModel: ObservableObject, Identifiable {
             do {
                 try await iapManager.buyProduct(product)
                 isBuying = false
+                await checkIfProductIsPurchased()
             } catch {
                 // handle error with user
             }
