@@ -77,6 +77,9 @@
 		4FAF0F5B287DDD980064F7AC /* Subscription16View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F5A287DDD980064F7AC /* Subscription16View.swift */; };
 		4FAF0F5E287DDDAA0064F7AC /* Subscription16ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F5D287DDDAA0064F7AC /* Subscription16ViewModel.swift */; };
 		4FAF0F60287E10880064F7AC /* IapManager+UserPremium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F5F287E10880064F7AC /* IapManager+UserPremium.swift */; };
+		4FAF0F64287ECAAC0064F7AC /* TransactionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F63287ECAAC0064F7AC /* TransactionsCoordinator.swift */; };
+		4FAF0F66287ECAB20064F7AC /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F65287ECAB20064F7AC /* TransactionsViewModel.swift */; };
+		4FAF0F68287ECAB90064F7AC /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF0F67287ECAB90064F7AC /* TransactionsView.swift */; };
 		4FD9F228287C64D900B64EB1 /* CoordinatorRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD9F227287C64D900B64EB1 /* CoordinatorRouter */; };
 		4FD9F22B287C6CA300B64EB1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F22A287C6CA300B64EB1 /* SubscriptionView.swift */; };
 		4FD9F22E287C72CE00B64EB1 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */; };
@@ -160,6 +163,9 @@
 		4FAF0F5D287DDDAA0064F7AC /* Subscription16ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription16ViewModel.swift; sourceTree = "<group>"; };
 		4FAF0F5F287E10880064F7AC /* IapManager+UserPremium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IapManager+UserPremium.swift"; sourceTree = "<group>"; };
 		4FAF0F61287E1C3B0064F7AC /* SyncedConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = SyncedConfiguration.storekit; sourceTree = "<group>"; };
+		4FAF0F63287ECAAC0064F7AC /* TransactionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsCoordinator.swift; sourceTree = "<group>"; };
+		4FAF0F65287ECAB20064F7AC /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
+		4FAF0F67287ECAB90064F7AC /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		4FD9F226287C637400B64EB1 /* CoordinatorRouter */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CoordinatorRouter; path = ../CoordinatorRouter; sourceTree = "<group>"; };
 		4FD9F22A287C6CA300B64EB1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		4FD9F22D287C72CE00B64EB1 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
@@ -504,6 +510,7 @@
 		4FAF0F52287DDD400064F7AC /* Subscriptions16 */ = {
 			isa = PBXGroup;
 			children = (
+				4FAF0F62287ECA400064F7AC /* Transactions */,
 				4FAF0F59287DDD8B0064F7AC /* Components */,
 				4FAF0F53287DDD5A0064F7AC /* Subscriptions16Coordinator.swift */,
 				4FAF0F55287DDD7F0064F7AC /* Subscriptions16ViewModel.swift */,
@@ -527,6 +534,16 @@
 				4FAF0F5D287DDDAA0064F7AC /* Subscription16ViewModel.swift */,
 			);
 			path = Subscription;
+			sourceTree = "<group>";
+		};
+		4FAF0F62287ECA400064F7AC /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				4FAF0F63287ECAAC0064F7AC /* TransactionsCoordinator.swift */,
+				4FAF0F65287ECAB20064F7AC /* TransactionsViewModel.swift */,
+				4FAF0F67287ECAB90064F7AC /* TransactionsView.swift */,
+			);
+			path = Transactions;
 			sourceTree = "<group>";
 		};
 		4FD9F229287C6C9900B64EB1 /* Components */ = {
@@ -701,6 +718,7 @@
 				4F2813E02879E7800050B889 /* SubscriptionsViewModel.swift in Sources */,
 				4F91029427345C2400B02C03 /* AppDelegate.swift in Sources */,
 				4F91028427345C2400B02C03 /* ChooseEndingView.swift in Sources */,
+				4FAF0F68287ECAB90064F7AC /* TransactionsView.swift in Sources */,
 				4FD9F22B287C6CA300B64EB1 /* SubscriptionView.swift in Sources */,
 				4FD9F234287C771E00B64EB1 /* UserDefaultsConfig.swift in Sources */,
 				4F91028627345C2400B02C03 /* ChooseEndingViewController.swift in Sources */,
@@ -713,6 +731,7 @@
 				4FAF0F5E287DDDAA0064F7AC /* Subscription16ViewModel.swift in Sources */,
 				4F91027D27345C2400B02C03 /* ChooseMediumView.swift in Sources */,
 				4F91025727345C2400B02C03 /* NavigationController.swift in Sources */,
+				4FAF0F66287ECAB20064F7AC /* TransactionsViewModel.swift in Sources */,
 				4F91025827345C2400B02C03 /* UIBarButtonItem+.swift in Sources */,
 				4F8338E5287CC84600AC34CC /* PremiumContentView.swift in Sources */,
 				4F8338E3287CC84000AC34CC /* PremiumContentViewModel.swift in Sources */,
@@ -733,6 +752,7 @@
 				4F91027E27345C2400B02C03 /* ChooseState.swift in Sources */,
 				4FD9F22E287C72CE00B64EB1 /* SubscriptionViewModel.swift in Sources */,
 				4F77DBD7287C3384009A5D4A /* IapService.swift in Sources */,
+				4FAF0F64287ECAAC0064F7AC /* TransactionsCoordinator.swift in Sources */,
 				4F2813E62879F0C10050B889 /* IapManager.swift in Sources */,
 				4F91026027345C2400B02C03 /* LoadingCoordinator.swift in Sources */,
 				4FAF0F58287DDD870064F7AC /* Susbcriptions16View.swift in Sources */,

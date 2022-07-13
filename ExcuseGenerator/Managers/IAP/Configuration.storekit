@@ -7,7 +7,7 @@
     {
       "displayPrice" : "3.99",
       "familyShareable" : false,
-      "internalID" : "AAB0F056",
+      "internalID" : "A9F9204A",
       "localizations" : [
         {
           "description" : "Use only at work",
@@ -15,14 +15,14 @@
           "locale" : "en_US"
         },
         {
-          "description" : "Ussar solo en el trabajo",
+          "description" : "Usar solo en el trabajo",
           "displayName" : "Excusa especial para tu jefe",
           "locale" : "es_MX"
         }
       ],
       "productID" : "excusator.consumable.boss",
       "referenceName" : "Boss excuse",
-      "type" : "Consumable"
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {
@@ -52,7 +52,7 @@
               "subscriptionPeriod" : "P1M"
             }
           ],
-          "displayPrice" : "9.99",
+          "displayPrice" : "12.99",
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "780E36BB",

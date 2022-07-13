@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Combine
-import StoreKit
 
 @available(iOS 16, *)
 struct Susbcriptions16View: View {
@@ -19,12 +18,18 @@ struct Susbcriptions16View: View {
         VStack {
             ScrollView {
                 VStack(spacing: 16) {
-                    ForEach(viewModel.productViewModels) { viewModel in
-                        Subscription16View(viewModel: viewModel)
+                    ForEach(viewModel.productViewModels) { cellViewModel in
+                        Subscription16View(
+                            viewModel: cellViewModel
+                        )
                     }
 
                     Button("Redeem code") {
                         redeemSheetIsPresented = true
+                    }
+
+                    Button("Refund transactions") {
+                        viewModel.showTransactions.send()
                     }
                 }
                 .padding()
@@ -50,10 +55,11 @@ struct Susbcriptions16View: View {
             case .failure(let error):
                 print("Handle error \(error.localizedDescription)")
             default:
-                break
+                Task {
+                    await viewModel.getProducts()
+                }
             }
         }
-//        .refundRequestSheet(for: <#T##UInt64#>, isPresented: <#T##Binding<Bool>#>)
         .onAppear {
             if self.shouldRequestReview() {
                 requestReview()

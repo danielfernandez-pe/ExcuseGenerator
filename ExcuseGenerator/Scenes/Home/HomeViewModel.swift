@@ -49,7 +49,6 @@ final class HomeViewModel: ObservableObject {
             .store(in: cancelBag)
 
         iapManagerUserPremium.isUserPremium
-            .print("home")
             .assign(to: &$isUserPremium)
 //        giveExcuseTapped = bindings.giveExcuseTap
 //            .map { dependency.excuseService.getRandomExcuse() }

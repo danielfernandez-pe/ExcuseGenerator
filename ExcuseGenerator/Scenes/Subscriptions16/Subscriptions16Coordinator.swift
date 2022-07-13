@@ -32,7 +32,30 @@ final class Subscriptions16Coordinator: BaseCoordinator<RouterResult<Void>> {
         let closeTapped = viewModel.closeTap
             .map { _ in RouterResult<Void>.dismiss }
 
+        viewModel.showTransactions
+            .flatMap { [weak self] _ -> AnyPublisher<RouterResult<Void>, Never> in
+                guard let self = self else { return Empty<RouterResult<Void>, Never>(completeImmediately: true).eraseToAnyPublisher() }
+                return self.showTransactions(router: self.router)
+            }
+            .sink(receiveValue: { _ in })
+            .store(in: cancelBag)
+
         return dismissed.merge(with: closeTapped)
+            .eraseToAnyPublisher()
+    }
+}
+
+@available(iOS 16, *)
+extension Subscriptions16Coordinator {
+    private func showTransactions(router: Router) -> AnyPublisher<RouterResult<Void>, Never> {
+        coordinate(to: TransactionsCoordinator(router: router, dependencies: dependencies))
+            .flatMap { result -> CoordinatingResult<RouterResult<Void>> in
+                guard result != .dismissedByRouter else {
+                    return Just(result).eraseToAnyPublisher()
+                }
+                return router.dismiss(animated: true, returning: result)
+            }
+            .prefix(1)
             .eraseToAnyPublisher()
     }
 }

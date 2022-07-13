@@ -29,6 +29,7 @@ protocol IapManagerTypeSk2: IapManagerUserPremium {
     func buyProduct(_ product: Product) async throws
     func isPurchased(_ product: Product) async -> Bool
     func restorePurchases()
+    func getLatestTransactions() async -> [Transaction]
 }
 
 @available(iOS 15, *)
@@ -44,15 +45,14 @@ final class IapManagerStoreKit2: IapManagerTypeSk2 {
     }
 
     private let isUserPremiumSubject = CurrentValueSubject<Bool, Never>(false)
+    private var purchasedProductIds: Set<String> = []
     private var updates: Task<Void, Never>?
 
     init() {
-        print("isUserPremium is \(UserDefaultsConfig.iapUserIsPremium)")
-        isUserPremiumSubject.send(UserDefaultsConfig.iapUserIsPremium)
         updates = listenForTransactions()
 
         Task {
-            await getProducts()
+            await handleProactiveRestore()
         }
     }
 
@@ -93,24 +93,44 @@ final class IapManagerStoreKit2: IapManagerTypeSk2 {
     }
 
     func isPurchased(_ product: Product) async -> Bool {
-        guard let result = await Transaction.latest(for: product.id) else {
-            return false
-        }
-        do {
-            let transaction = try checkVerified(result)
-            return transaction.revocationDate == nil && !transaction.isUpgraded
-        } catch {
-            return false
-        }
+        // MARK: First way, if you use Transaction.currentEntitlements
+
+        purchasedProductIds.contains(product.id)
+
+        // MARK: Second way
+
+//        guard let result = await Transaction.latest(for: product.id) else {
+//            return false
+//        }
+//        do {
+//            let transaction = try checkVerified(result)
+//            return transaction.revocationDate == nil && !transaction.isUpgraded
+//        } catch {
+//            return false
+//        }
     }
 
     func handlePurchasedProduct(with transaction: Transaction) async {
-        UserDefaultsConfig.iapProductIdentifiers.append(transaction.productID)
+        purchasedProductIds.insert(transaction.productID)
+
         if transaction.productType == .autoRenewable, let expirationDate = transaction.expirationDate {
-            let isUserPremium = expirationDate > Date()
-            UserDefaultsConfig.iapUserIsPremium = isUserPremium
+            let isUserPremium = expirationDate > .now
             isUserPremiumSubject.send(isUserPremium)
         }
+    }
+
+    func getLatestTransactions() async -> [Transaction] {
+        var transactions: [Transaction] = []
+
+        for purchasedProductId in purchasedProductIds {
+            guard let result = await Transaction.latest(for: purchasedProductId) else { continue }
+            do {
+                let transaction = try checkVerified(result)
+                transactions.append(transaction)
+            } catch {}
+        }
+
+        return transactions
     }
 
     private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
@@ -127,11 +147,65 @@ final class IapManagerStoreKit2: IapManagerTypeSk2 {
             for await result in Transaction.updates {
                 do {
                     let transaction = try self.checkVerified(result)
-                    await self.handlePurchasedProduct(with: transaction)
+                    print("New update for transaction with \(transaction.productID)")
+
+                    // MARK: - Handle refund
+
+                    if let revocationDate = transaction.revocationDate, let revocationReason = transaction.revocationReason {
+                        print("\(transaction.productID) revoked on \(revocationDate)")
+
+                        switch revocationReason {
+                        case .developerIssue:
+                            print("Handle one way")
+                        case .other:
+                            print("Handle another way")
+                        default:
+                            break
+                        }
+
+                        self.purchasedProductIds.remove(transaction.productID)
+                        if transaction.productType == .autoRenewable {
+                            self.isUserPremiumSubject.send(false)
+                        }
+                    } else {
+                        // MARK: - Handle purchase
+
+                        await self.handlePurchasedProduct(with: transaction)
+                    }
+
                     await transaction.finish()
                 } catch {
                     // ignore unverified transactions
                 }
+            }
+        }
+    }
+
+    // finite stream
+    private func handleProactiveRestore() async {
+        // currentEntitlements work for non-consumable and subscriptions.
+        // consumable won't appear here because it can be purchase multiple times
+        for await result in Transaction.currentEntitlements {
+            do {
+                let transaction = try self.checkVerified(result)
+                print("Current entitlements has transaction for \(transaction.productID)")
+                if transaction.revocationDate == nil {
+                    switch transaction.productType {
+                    case .autoRenewable:
+                        if let expirationDate = transaction.expirationDate, expirationDate > .now {
+                            isUserPremiumSubject.send(true)
+                            purchasedProductIds.insert(transaction.productID)
+                        }
+                    case .nonConsumable:
+                        purchasedProductIds.insert(transaction.productID)
+                    default:
+                        break
+                    }
+                } else {
+                    purchasedProductIds.remove(transaction.productID)
+                }
+            } catch {
+                // ignore unverified transactions
             }
         }
     }
